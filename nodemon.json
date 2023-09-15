@@ -1,0 +1,5 @@
+{
+  "watch": ["src/*", "tsup.config.ts"],
+  "ext": "ts,less,html",
+  "exec": "tsup"
+}

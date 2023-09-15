@@ -1,0 +1,60 @@
+{
+  "name": "bili-dark",
+  "type": "module",
+  "version": "0.0.1",
+  "packageManager": "pnpm@8.7.5",
+  "description": "bilibili暗黑模式",
+  "author": "FliPPeDround <FliPPeDround@qq.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/FliPPeDround/bili-dark#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FliPPeDround/bili-dark.git"
+  },
+  "bugs": "https://github.com/FliPPeDround/bili-dark/issues",
+  "keywords": [],
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "nodemon",
+    "build": "tsup",
+    "lint": "eslint .",
+    "lint:fix": "eslint . fix",
+    "release": "bumpp",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.42.0",
+    "@types/fs-extra": "^11.0.1",
+    "@types/less": "^3.0.4",
+    "@types/node": "^18.15.11",
+    "@types/webextension-polyfill": "^0.10.0",
+    "bumpp": "^9.1.0",
+    "eslint": "^8.37.0",
+    "fs-extra": "^11.1.1",
+    "kolorist": "^1.8.0",
+    "less": "^4.2.0",
+    "less-plugin-clean-css": "^1.5.1",
+    "lint-staged": "^13.2.0",
+    "nodemon": "^3.0.1",
+    "pnpm": "^8.7.5",
+    "simple-git-hooks": "^2.8.1",
+    "terser": "^5.17.1",
+    "tsup": "^7.2.0",
+    "tsx": "^3.12.10",
+    "typescript": "^5.2.2",
+    "webextension-polyfill": "^0.10.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  },
+  "eslintConfig": {
+    "extends": "@antfu"
+  }
+}
