@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.42.0",
+    "@types/chrome": "^0.0.246",
     "@types/fs-extra": "^11.0.1",
     "@types/less": "^3.0.4",
     "@types/node": "^18.15.11",

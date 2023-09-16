@@ -1,0 +1,34 @@
+@import './../../constants.less';
+
+.entry() {
+  li {
+    span,svg {
+      .text-grey-c()
+    }
+    &:hover {
+      span,svg {
+        .text-light-c()
+      }
+    }
+  }
+}
+
+.bili-header__bar {
+  background-color: #0c0c0dbf;
+  backdrop-filter: blur(32px);
+  .left-entry {
+    .entry();
+  }
+  .right-entry {
+    .entry();
+    .header-upload-entry {
+      span,svg {
+        .text-light-c();
+      }
+    }
+  }
+}
+
+.slide-down {
+  box-shadow: none !important;
+}

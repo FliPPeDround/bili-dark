@@ -7,8 +7,9 @@ export default defineConfig((options) => {
   return {
     entry: {
       content: 'src/content/index.ts',
+      popup: 'src/popup/script/index.ts',
     },
-    format: ['iife'],
+    format: ['cjs'],
     outDir: 'extension',
     shims: false,
     dts: false,
@@ -19,7 +20,7 @@ export default defineConfig((options) => {
       await lessBundler()
       await copyAssets()
     },
-    publicDir: 'src/popup',
+    publicDir: 'src/popup/html',
     outExtension() {
       return {
         js: '.js',

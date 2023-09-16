@@ -8,6 +8,9 @@ devDependencies:
   '@antfu/eslint-config':
     specifier: ^0.42.0
     version: 0.42.0(eslint@8.49.0)(typescript@5.2.2)
+  '@types/chrome':
+    specifier: ^0.0.246
+    version: 0.0.246
   '@types/fs-extra':
     specifier: ^11.0.1
     version: 11.0.2
@@ -545,11 +548,32 @@ packages:
       fastq: 1.15.0
     dev: true
 
+  /@types/chrome@0.0.246:
+    resolution: {integrity: sha512-MxGxEomGxsJiL9xe/7ZwVgwdn8XVKWbPvxpVQl3nWOjrS0Ce63JsfzxUc4aU3GvRcUPYsfufHmJ17BFyKxeA4g==}
+    dependencies:
+      '@types/filesystem': 0.0.33
+      '@types/har-format': 1.2.12
+    dev: true
+
+  /@types/filesystem@0.0.33:
+    resolution: {integrity: sha512-2KedRPzwu2K528vFkoXnnWdsG0MtUwPjuA7pRy4vKxlxHEe8qUDZibYHXJKZZr2Cl/ELdCWYqyb/MKwsUuzBWw==}
+    dependencies:
+      '@types/filewriter': 0.0.30
+    dev: true
+
+  /@types/filewriter@0.0.30:
+    resolution: {integrity: sha512-lB98tui0uxc7erbj0serZfJlHKLNJHwBltPnbmO1WRpL5T325GOHRiQfr2E29V2q+S1brDO63Fpdt6vb3bES9Q==}
+    dev: true
+
   /@types/fs-extra@11.0.2:
     resolution: {integrity: sha512-c0hrgAOVYr21EX8J0jBMXGLMgJqVf/v6yxi0dLaJboW9aQPh16Id+z6w2Tx1hm+piJOLv8xPfVKZCLfjPw/IMQ==}
     dependencies:
       '@types/jsonfile': 6.1.1
       '@types/node': 18.17.15
+    dev: true
+
+  /@types/har-format@1.2.12:
+    resolution: {integrity: sha512-P20p/YBrqUBmzD6KhIQ8EiY4/RRzlekL4eCvfQnulFPfjmiGxKIoyCeI7qam5I7oKH3P8EU4ptEi0EfyGoLysw==}
     dev: true
 
   /@types/json-schema@7.0.12:
@@ -1994,7 +2018,7 @@ packages:
     dev: true
 
   /image-size@0.5.5:
-    resolution: {integrity: sha1-Cd/Uq50g4p6xw+gLiZA3jfnjy5w=}
+    resolution: {integrity: sha512-6TDAlDPZxUFCv+fuOkIoXT/V/f3Qbq8e37p+YOiYrUv3v9cc3/6x78VdfPgFVaB9dZYeLUfKgHRebpkm/oP2VQ==}
     engines: {node: '>=0.10.0'}
     hasBin: true
     requiresBuild: true
