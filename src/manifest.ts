@@ -21,11 +21,7 @@ export async function getManifest() {
     },
     content_scripts: [
       {
-        matches: [
-          'https://www.bilibili.com/',
-          'https://www.bilibili.com/?*',
-          'https://www.bilibili.com/s?*',
-        ],
+        matches: ['*://www.bilibili.com/*'],
         js: ['content.js'],
         css: ['content.css'],
         run_at: 'document_start',
