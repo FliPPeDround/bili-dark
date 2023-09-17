@@ -13,11 +13,46 @@
   }
 }
 
+.center() {
+    #nav-searchform {
+      border: none;
+      background-color: hsla(0,0%,100%,.18);
+      .nav-search-input {
+        &::placeholder {
+          color: hsla(0,0%,100%,.6);
+        }
+        caret-color: #FAFAFA;
+      }
+      .nav-search-btn {
+        color: hsla(0,0%,100%,.6);
+        &:hover {
+          background-color: transparent;
+          .text-light-c();
+        }
+      }
+    }
+    #nav-searchform.is-focus .nav-search-content {
+      background-color: hsla(0,0%,100%,.18);
+      .nav-search-input {
+        &:active {
+          background-color: transparent;
+        }
+        &:focus {
+          background-color: transparent;
+        }
+      }
+    }
+}
+
+
 .bili-header__bar {
   background-color: #0c0c0dbf;
   backdrop-filter: blur(32px);
   .left-entry {
     .entry();
+  }
+  .center-search-container {
+    .center();
   }
   .right-entry {
     .entry();
