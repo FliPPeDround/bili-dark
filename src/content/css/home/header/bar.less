@@ -86,6 +86,9 @@
   }
   .right-entry {
     .entry();
+    .vip-wrap {
+      display: none;
+    }
     .header-upload-entry {
       span,svg {
         .text-light-c();
@@ -96,4 +99,39 @@
 
 .slide-down {
   box-shadow: none !important;
+}
+
+.v-popover-content {
+  background-color: #18181B;
+  .border-grey-c();
+  .live,
+  .game,
+  .manga {
+    background-color: #18181B;
+  }
+  .title,
+  .game-right-title,
+  .manga-right-title,
+  .main,
+  .header-tabs-panel__item--active,
+  .dynamic-info-content {
+    .text-light-c() !important;
+  }
+  .live-left-list-item-text,
+  .game-left-panel-item-title,
+  .game-right-list-item,
+  .manga-left-item-title,
+  .manga-right-list-item-text,
+  .message-inner-list__item,
+  .header-tabs-panel__item {
+    .text-grey-c() !important;
+  }
+  .game-right-list-item,
+  .manga-right-list-item,
+  .message-inner-list__item,
+  .header-dynamic-list-item {
+    &:hover {
+      background-color: #27272A !important;
+    }
+  }
 }
