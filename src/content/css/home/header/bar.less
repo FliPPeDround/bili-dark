@@ -13,32 +13,62 @@
   }
 }
 
+@searchform-bg-color: hsla(0,0%,100%,.18);
+@searchform-placeholder-color: hsla(0,0%,100%,.6);
+@searchform-caret-color: #FAFAFA;
+
 .center() {
     #nav-searchform {
-      border: none;
-      background-color: hsla(0,0%,100%,.18);
-      .nav-search-input {
-        &::placeholder {
-          color: hsla(0,0%,100%,.6);
-        }
-        caret-color: #FAFAFA;
-      }
-      .nav-search-btn {
-        color: hsla(0,0%,100%,.6);
+        border: none;
+        background-color: @searchform-bg-color;
         &:hover {
-          background-color: transparent;
+            border: none;
+            background-color: @searchform-bg-color;
+        }
+        .nav-search-input {
+            &::placeholder {
+                color: @searchform-placeholder-color;
+            }
+            &:active, &:focus {
+                background-color: transparent;
+            }
+            caret-color: @searchform-caret-color;
+        }
+        .nav-search-btn {
+            color: @searchform-placeholder-color;
+            &:hover {
+                background-color: transparent;
+                .text-light-c();
+            }
+        }
+    }
+    #nav-searchform.is-focus {
+        border: none;
+        background-color: @searchform-bg-color;
+        .nav-search-content {
+            background-color: @searchform-bg-color;
+        }
+    }
+    .search-panel {
+      background-color: #24272d;
+      border: none;
+      .header {
+        .text-light-c();
+      }
+      .history-item {
+        .bg-grey-c();
+        .text-grey-c();
+      }
+      .trending-item {
+        .trendings-rank {
           .text-light-c();
         }
-      }
-    }
-    #nav-searchform.is-focus .nav-search-content {
-      background-color: hsla(0,0%,100%,.18);
-      .nav-search-input {
-        &:active {
-          background-color: transparent;
+        .trending-text {
+          .text-grey-c();
         }
-        &:focus {
-          background-color: transparent;
+        &:hover {
+          background-color: currentColor;
+          border-radius: 6px;
         }
       }
     }
