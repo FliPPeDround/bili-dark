@@ -1,6 +1,24 @@
 @import './../constants.less';
 
-button {
+.primary-btn() {
   .bg-grey-c() !important;
+  .border-grey-c() !important;
+  .text-grey-c() !important;
+  svg, span {
+    .text-grey-c() !important;
+  }
 }
 
+.primary-btn{
+  .primary-btn();
+}
+
+.feed-roll-btn {
+  .primary-btn.roll-btn {
+    .primary-btn();
+  }
+}
+
+.primary-btn .feedback{
+  .primary-btn();
+}
