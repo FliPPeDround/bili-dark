@@ -1,4 +1,4 @@
-@import './../../constants.less';
+@import './../constants.less';
 
 .entry() {
   li {
@@ -75,7 +75,8 @@
 }
 
 
-.bili-header__bar {
+.bili-header__bar,
+.bili-header__bar.slide-down {
   background-color: #0c0c0dbf;
   backdrop-filter: blur(32px);
   .left-entry {
@@ -95,10 +96,6 @@
       }
     }
   }
-}
-
-.slide-down {
-  box-shadow: none !important;
 }
 
 .v-popover-content {
