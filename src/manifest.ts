@@ -17,13 +17,13 @@ export async function getManifest() {
         48: './assets/icon-512.png',
         128: './assets/icon-512.png',
       },
-      default_popup: 'popup.html',
+      default_popup: '/dist/popup/index.html',
     },
     content_scripts: [
       {
         matches: ['*://www.bilibili.com/*'],
-        js: ['content.js'],
-        css: ['content.css'],
+        js: ['dist/contentScripts/index.js'],
+        css: ['dist/contentStyles/index.css'],
         run_at: 'document_start',
       },
     ],

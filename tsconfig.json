@@ -1,16 +1,25 @@
 {
   "compilerOptions": {
-    "target": "es2018",
-    "module": "esnext",
-    "moduleResolution": "node",
+    "baseUrl": ".",
+    "module": "ESNext",
+    "target": "es2016",
     "lib": ["DOM", "ESNext"],
-    "esModuleInterop": true,
     "strict": true,
-    "strictNullChecks": true,
-    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "incremental": false,
     "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "types": ["chrome"]
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noUnusedLocals": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": [
+      "vite/client",
+      "chrome"
+    ],
+    "paths": {
+      "~/*": ["src/*"]
+    }
   },
-  "exclude": ["extension", "node_modules"]
+  "exclude": ["dist", "node_modules"]
 }
