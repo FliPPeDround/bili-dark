@@ -12,11 +12,6 @@ export default defineConfig({
       mode: 'per-module',
     }),
   ],
-  define: {
-    '__DEV__': isDev,
-    '__NAME__': JSON.stringify(packageJson.name),
-    'process.env.NODE_ENV': JSON.stringify(isDev ? 'development' : 'production'),
-  },
   build: {
     watch: isDev
       ? {}

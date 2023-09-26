@@ -27,6 +27,10 @@
     "build:popup": "vite build --config vite.config.popupScripts.ts",
     "build:js": "vite build --config vite.config.contentScripts.ts",
     "build:css": "vite build --config vite.config.contentStyles.ts",
+    "pack:zip": "rimraf extension.zip && jszip-cli add extension/* -o ./extension.zip",
+    "pack:crx": "crx pack extension -o ./extension.crx",
+    "pack:xpi": "cross-env WEB_EXT_ARTIFACTS_DIR=./ web-ext build --source-dir ./extension --filename extension.xpi --overwrite-dest",
+    "start": "web-ext run --source-dir ./extension --target=chromium",
     "clear": "rimraf --glob extension/dist extension/manifest.json extension.*",
     "lint": "eslint .",
     "lint:fix": "eslint . fix",
@@ -35,6 +39,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.42.0",
+    "@ffflorian/jszip-cli": "^3.4.1",
     "@types/chrome": "^0.0.246",
     "@types/fs-extra": "^11.0.1",
     "@types/less": "^3.0.4",
@@ -43,6 +48,7 @@
     "bumpp": "^9.1.0",
     "chokidar": "^3.5.3",
     "cross-env": "^7.0.3",
+    "crx": "^5.0.1",
     "eslint": "^8.37.0",
     "fs-extra": "^11.1.1",
     "kolorist": "^1.8.0",
@@ -57,6 +63,7 @@
     "typescript": "^5.2.2",
     "unocss": "^0.56.2",
     "vite": "^4.4.9",
+    "web-ext": "^7.7.0",
     "webextension-polyfill": "^0.10.0"
   },
   "simple-git-hooks": {
