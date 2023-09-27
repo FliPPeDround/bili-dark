@@ -30,7 +30,7 @@
     "pack:zip": "rimraf extension.zip && jszip-cli add extension/* -o ./extension.zip",
     "pack:crx": "crx pack extension -o ./extension.crx",
     "pack:xpi": "cross-env WEB_EXT_ARTIFACTS_DIR=./ web-ext build --source-dir ./extension --filename extension.xpi --overwrite-dest",
-    "start": "web-ext run --source-dir ./extension --target=chromium",
+    "start": "web-ext run --devtools --start-url www.bilibili.com --source-dir ./extension --target=chromium",
     "clear": "rimraf --glob extension/dist extension/manifest.json extension.*",
     "lint": "eslint .",
     "lint:fix": "eslint . fix",
