@@ -1,12 +1,11 @@
-const btn = document.getElementById('btn')
-btn!.addEventListener('click', async (event) => {
-  const [tab] = await chrome.tabs.query({
-    active: true,
-    currentWindow: true,
-  })
-  const tabId = tab.id ?? 1
-  chrome.tabs.sendMessage(tabId, {
-    action: 'reload',
-  })
-  chrome.runtime.reload()
-})
+document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+  <div>
+    <h1>Vite + TypeScriptqqqq</h1>
+    <div class="card">
+      <button id="counter" type="button"></button>
+    </div>
+    <p class="read-the-docs">
+      Click on the Vite and TypeScript logos to learn more
+    </p>
+  </div>
+`

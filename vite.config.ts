@@ -1,21 +1,14 @@
-import type { UserConfig } from 'vite'
+import { defineConfig } from 'vite'
+import { crx } from '@crxjs/vite-plugin'
 import UnoCSS from 'unocss/vite'
-import { isDev, r } from './scripts/utils'
-import packageJson from './package.json'
+import { manifest } from './manifest'
 
-export const sharedConfig: UserConfig = {
-  root: r('src'),
-  resolve: {
-    alias: {
-      '@/': `${r('src')}/`,
-    },
-  },
-  define: {
-    '__DEV__': isDev,
-    '__NAME__': JSON.stringify(packageJson.name),
-    'process.env.NODE_ENV': JSON.stringify(isDev ? 'development' : 'production'),
-  },
+export default defineConfig({
   plugins: [
     UnoCSS({ mode: 'per-module' }),
+    crx({ manifest }),
   ],
-}
+  server: {
+    hmr: true,
+  },
+})

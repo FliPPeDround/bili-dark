@@ -1,5 +1,6 @@
 {
   "name": "bili-dark",
+  "type": "module",
   "version": "0.0.1",
   "packageManager": "pnpm@8.7.5",
   "description": "bilibili暗黑模式",
@@ -13,66 +14,33 @@
   "bugs": "https://github.com/FliPPeDround/bili-dark/issues",
   "keywords": [],
   "sideEffects": false,
-  "files": [
-    "dist"
-  ],
   "scripts": {
-    "dev": "npm run clear && cross-env NODE_ENV=development run-p dev:*",
-    "dev:prepare": "tsx scripts/prepare.ts",
-    "dev:popup": "npm run build:popup -- --mode development",
-    "dev:js": "npm run build:js -- --mode development",
-    "dev:css": "npm run build:css -- --mode development",
-    "build": "cross-env NODE_ENV=production run-s clear build:*",
-    "build:prepare": "tsx scripts/prepare.ts",
-    "build:popup": "vite build --config vite.config.popupScripts.ts",
-    "build:js": "vite build --config vite.config.contentScripts.ts",
-    "build:css": "vite build --config vite.config.contentStyles.ts",
-    "pack:zip": "rimraf extension.zip && jszip-cli add extension/* -o ./extension.zip",
-    "pack:crx": "crx pack extension -o ./extension.crx",
-    "pack:xpi": "cross-env WEB_EXT_ARTIFACTS_DIR=./ web-ext build --source-dir ./extension --filename extension.xpi --overwrite-dest",
-    "start": "web-ext run --devtools --start-url www.bilibili.com --source-dir ./extension --target=chromium",
-    "clear": "rimraf --glob extension/dist extension/manifest.json extension.*",
+    "dev": "vite",
+    "build": "tsc && vite build",
     "lint": "eslint .",
-    "lint:fix": "eslint . fix",
-    "release": "bumpp",
-    "typecheck": "tsc --noEmit"
+    "lint:fix": "eslint . --fix",
+    "postinstall": "npx simple-git-hooks"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.42.0",
-    "@ffflorian/jszip-cli": "^3.4.1",
-    "@types/chrome": "^0.0.246",
-    "@types/fs-extra": "^11.0.1",
-    "@types/less": "^3.0.4",
-    "@types/node": "^18.15.11",
-    "@types/webextension-polyfill": "^0.10.0",
-    "bumpp": "^9.1.0",
-    "chokidar": "^3.5.3",
-    "cross-env": "^7.0.3",
-    "crx": "^5.0.1",
-    "eslint": "^8.37.0",
-    "fs-extra": "^11.1.1",
-    "kolorist": "^1.8.0",
+    "@antfu/eslint-config": "^2.6.4",
+    "@crxjs/vite-plugin": "2.0.0-beta.23",
+    "@types/chrome": "^0.0.262",
+    "@unocss/eslint-config": "^0.58.5",
+    "@unocss/eslint-plugin": "^0.58.5",
+    "eslint": "^8.57.0",
+    "eslint-plugin-format": "^0.1.0",
     "less": "^4.2.0",
-    "lint-staged": "^13.2.0",
-    "npm-run-all": "^4.1.5",
-    "pnpm": "^8.7.5",
-    "rimraf": "^5.0.4",
-    "simple-git-hooks": "^2.8.1",
-    "terser": "^5.17.1",
-    "tsx": "^3.12.10",
+    "lint-staged": "^15.2.2",
+    "simple-git-hooks": "^2.9.0",
+    "stylus": "^0.62.0",
     "typescript": "^5.2.2",
-    "unocss": "^0.56.2",
-    "vite": "^4.4.9",
-    "web-ext": "^7.7.0",
-    "webextension-polyfill": "^0.10.0"
+    "unocss": "^0.58.5",
+    "vite": "^5.1.4"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
     "*": "eslint --fix"
-  },
-  "eslintConfig": {
-    "extends": "@antfu"
   }
 }
