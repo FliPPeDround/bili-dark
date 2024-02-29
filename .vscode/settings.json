@@ -27,6 +27,8 @@
   ],
   "cSpell.words": [
     "bili",
+    "cecream",
     "crxjs"
-  ]
+  ],
+  "less.lint.unknownAtRules": "ignore"
 }

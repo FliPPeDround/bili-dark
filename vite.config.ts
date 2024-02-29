@@ -8,7 +8,4 @@ export default defineConfig({
     UnoCSS({ mode: 'per-module' }),
     crx({ manifest }),
   ],
-  server: {
-    hmr: true,
-  },
 })
