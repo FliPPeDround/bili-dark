@@ -52,6 +52,6 @@
   },
   "lint-staged": {
     "*": "eslint --fix",
-    "*.{css,less}": "pnpm run lint:css && prettier --write"
+    "*.{css,less}": "prettier --write"
   }
 }

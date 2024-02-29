@@ -1,21 +1,25 @@
+// 入口
 .entry() {
   li {
-    span,
-    svg {
-      @apply text-gray-4!;
-    }
+    // 首页
+    .entry-title,
+    .zhuzhan-icon,
+    // 下载
+    .download-entry,
+    // 默认
+    .default-entry {
+      @apply text-gray-4;
 
-    &:hover {
-      span,
-      svg {
-        @apply text-light-4!;
+      &:hover {
+        @apply text-light-4;
       }
     }
   }
 }
 
+// 头部
 .bili-header__bar {
-  @apply bg-dark-8/80 mb64px;
+  @apply bg-dark-8/80;
 
   .left-entry {
     .entry();
@@ -33,8 +37,9 @@
   }
 }
 
+// 弹出框
 .v-popover-content {
-  @apply border-dark-8 bg-dark-8;
+  @apply border-dark-8! bg-dark-8!;
 
   // 背景颜色
   // 番剧
@@ -45,6 +50,8 @@
   .game,
   // 漫画
   .manga,
+  // 下载
+  .download-wrapper,
   // 用户信息
   .avatar-panel-popover {
     @apply bg-dark-8;
@@ -56,7 +63,11 @@
   }
   // 分割线
   .game-left .manga-left {
-    @apply border-gray-6;
+    @apply border-gray-5;
+  }
+
+  .download-top-center {
+    @apply bg-gray-5!;
   }
 
   // 番剧小标题
@@ -75,16 +86,21 @@
   // 游戏列表标题
   .game-right-title,
   // 漫画小标题
-  .manga-right-title {
+  .manga-right-title,
+  // 下载信息
+  .download-top-left {
     @apply text-gray-3!;
   }
 
   // 漫画标题
   .manga-left-item-title,
   // 漫画列表
+  .manga-right-list-item,
   .manga-right-list-item-text,
   // 游戏列表
-  .game-right-list-item {
+  .game-right-list-item,
+  // 下载标题
+  .download-top-title .main {
     @apply text-gray-4!;
   }
 
