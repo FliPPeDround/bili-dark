@@ -51,7 +51,7 @@
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
-    "*": "pnpm run lint:fix",
-    "*.{css,less}": "pnpm run lint:css && pnpm run prettier"
+    "*": "eslint --fix",
+    "*.{css,less}": "pnpm run lint:css && prettier --write"
   }
 }
