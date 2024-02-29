@@ -1,0 +1,98 @@
+.entry() {
+  li {
+    span,
+    svg {
+      @apply text-gray-4!;
+    }
+    &:hover {
+      span,
+      svg {
+        @apply text-light-4!;
+      }
+    }
+  }
+}
+
+.bili-header__bar {
+  @apply bg-dark-8/80 mb64px;
+
+  .left-entry {
+    .entry();
+  }
+
+  .right-entry {
+    .entry();
+    .header-upload-entry {
+      span,
+      svg {
+        @apply text-light-4!;
+      }
+    }
+  }
+}
+
+.v-popover-content {
+  @apply border-dark-8 bg-dark-8;
+
+  // 背景颜色
+  // 番剧
+  .anime,
+  // 直播
+  .live,
+  // 游戏
+  .game,
+  // 漫画
+  .manga,
+  // 用户信息
+  .avatar-panel-popover {
+    @apply bg-dark-8;
+  }
+
+  // 大标题
+  .title {
+    @apply text-light-8!;
+  }
+  // 分割线
+  .game-left .manga-left {
+    @apply border-gray-6;
+  }
+
+  // 番剧小标题
+  .anime-list-item {
+    &-title,
+    &-left,
+    &-right {
+      @apply text-gray-3!;
+    }
+  }
+
+  // 直播小标题
+  .live-left-list-item-text,
+  // 游戏小标题
+  .game-left-panel-item-title,
+  // 游戏列表标题
+  .game-right-title,
+  // 漫画小标题
+  .manga-right-title {
+    @apply text-gray-3!;
+  }
+
+  // 漫画标题
+  .manga-left-item-title,
+  // 漫画列表
+  .manga-right-list-item-text,
+  // 游戏列表
+  .game-right-list-item {
+    @apply text-gray-4!;
+  }
+
+  // 列表hover
+  .game-right-list-item,
+  .manga-right-list-item,
+  .message-inner-list__item,
+  .header-dynamic-list-item {
+    &:hover {
+      @apply bg-dark-1/80;
+    }
+  }
+}
