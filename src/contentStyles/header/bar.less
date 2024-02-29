@@ -2,96 +2,119 @@
 
 .entry() {
   li {
-    span,svg {
-      .text-grey-c()
+    span,
+    svg {
+      .text-grey-c();
     }
+
     &:hover {
-      span,svg {
-        .text-light-c()
+      span,
+      svg {
+        .text-light-c();
       }
     }
   }
 }
 
-@searchform-bg-color: hsla(0,0%,100%,.18);
-@searchform-placeholder-color: hsla(0,0%,100%,.6);
-@searchform-caret-color: #FAFAFA;
+@searchform-bg-color: hsla(0, 0%, 100%, 0.18);
+@searchform-placeholder-color: hsla(0, 0%, 100%, 0.6);
+@searchform-caret-color: #fafafa;
 
 .center() {
-    #nav-searchform {
-        border: none;
-        background-color: @searchform-bg-color;
-        &:hover {
-            border: none;
-            background-color: @searchform-bg-color;
-        }
-        .nav-search-input {
-            &::placeholder {
-                color: @searchform-placeholder-color;
-            }
-            &:active, &:focus {
-                background-color: transparent;
-            }
-            caret-color: @searchform-caret-color;
-        }
-        .nav-search-btn {
-            color: @searchform-placeholder-color;
-            &:hover {
-                background-color: transparent;
-                .text-light-c();
-            }
-        }
-    }
-    #nav-searchform.is-focus {
-        border: none;
-        background-color: @searchform-bg-color;
-        .nav-search-content {
-            background-color: @searchform-bg-color;
-        }
-    }
-    .search-panel {
-      background-color: #24272d;
+  #nav-searchform {
+    border: none;
+    background-color: @searchform-bg-color;
+
+    &:hover {
       border: none;
-      .header {
+      background-color: @searchform-bg-color;
+    }
+
+    .nav-search-input {
+      &::placeholder {
+        color: @searchform-placeholder-color;
+      }
+
+      &:active,
+      &:focus {
+        background-color: transparent;
+      }
+
+      caret-color: @searchform-caret-color;
+    }
+
+    .nav-search-btn {
+      color: @searchform-placeholder-color;
+
+      &:hover {
+        background-color: transparent;
         .text-light-c();
       }
-      .history-item {
-        .bg-grey-c();
+    }
+  }
+
+  #nav-searchform.is-focus {
+    border: none;
+    background-color: @searchform-bg-color;
+
+    .nav-search-content {
+      background-color: @searchform-bg-color;
+    }
+  }
+
+  .search-panel {
+    background-color: #24272d;
+    border: none;
+
+    .header {
+      .text-light-c();
+    }
+
+    .history-item {
+      .bg-grey-c();
+      .text-grey-c();
+    }
+
+    .trending-item {
+      .trendings-rank {
+        .text-light-c();
+      }
+
+      .trending-text {
         .text-grey-c();
       }
-      .trending-item {
-        .trendings-rank {
-          .text-light-c();
-        }
-        .trending-text {
-          .text-grey-c();
-        }
-        &:hover {
-          background-color: currentColor;
-          border-radius: 6px;
-        }
+
+      &:hover {
+        background-color: currentcolor;
+        border-radius: 6px;
       }
     }
+  }
 }
-
 
 .bili-header__bar,
 .bili-header__bar.slide-down {
   background-color: #0c0c0dbf;
   backdrop-filter: blur(32px);
+
   .left-entry {
     .entry();
   }
+
   .center-search-container {
     .center();
   }
+
   .right-entry {
     .entry();
+
     .vip-wrap {
       display: none;
     }
+
     .header-upload-entry {
-      span,svg {
+      span,
+      svg {
         .text-light-c();
       }
     }
@@ -99,13 +122,15 @@
 }
 
 .v-popover-content {
-  background-color: #18181B;
+  background-color: #18181b;
   .border-grey-c();
+
   .live,
   .game,
   .manga {
-    background-color: #18181B;
+    background-color: #18181b;
   }
+
   .title,
   .game-right-title,
   .manga-right-title,
@@ -114,6 +139,7 @@
   .dynamic-info-content {
     .text-light-c() !important;
   }
+
   .live-left-list-item-text,
   .game-left-panel-item-title,
   .game-right-list-item,
@@ -123,12 +149,13 @@
   .header-tabs-panel__item {
     .text-grey-c() !important;
   }
+
   .game-right-list-item,
   .manga-right-list-item,
   .message-inner-list__item,
   .header-dynamic-list-item {
     &:hover {
-      background-color: #27272A !important;
+      background-color: #27272a !important;
     }
   }
 }

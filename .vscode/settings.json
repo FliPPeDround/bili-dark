@@ -2,17 +2,18 @@
   "files.associations": {
     "*.css": "postcss"
   },
-
   "eslint.experimental.useFlatConfig": true,
-
-  "prettier.enable": false,
+  "prettier.enable": true,
   "editor.formatOnSave": false,
-
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[less]": {
+    "editor.formatOnSave": true
+  },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit",
     "source.organizeImports": "never"
   },
-
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -25,10 +26,6 @@
     "jsonc",
     "yaml"
   ],
-  "cSpell.words": [
-    "bili",
-    "cecream",
-    "crxjs"
-  ],
+  "cSpell.words": ["bili", "cecream", "crxjs"],
   "less.lint.unknownAtRules": "ignore"
 }

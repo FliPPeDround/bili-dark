@@ -20,6 +20,8 @@
     "build": "tsc && vite build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "lint:css": "stylelint \"src/**/*.less\" --fix",
+    "prettier": "prettier --write \"src/**/*.less\"",
     "postinstall": "npx simple-git-hooks"
   },
   "devDependencies": {
@@ -34,7 +36,12 @@
     "less": "^4.2.0",
     "lint-staged": "^15.2.2",
     "nodemon": "^3.1.0",
+    "postcss-less": "^6.0.0",
+    "prettier": "^3.2.5",
     "simple-git-hooks": "^2.9.0",
+    "stylelint": "^16.2.1",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-less": "^3.0.1",
     "stylus": "^0.62.0",
     "typescript": "^5.2.2",
     "unocss": "^0.58.5",
@@ -44,6 +51,7 @@
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
-    "*": "eslint --fix"
+    "*": "pnpm run lint:fix",
+    "*.{css,less}": "pnpm run lint:css && pnpm run prettier"
   }
 }

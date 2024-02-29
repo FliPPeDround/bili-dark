@@ -16,8 +16,5 @@ export const manifest = defineManifest({
       run_at: 'document_start',
     },
   ],
-  permissions: [
-    'scripting',
-    'activeTab',
-  ],
+  permissions: ['scripting', 'activeTab'],
 })
