@@ -26,6 +26,11 @@
     "jsonc",
     "yaml"
   ],
-  "cSpell.words": ["bili", "cecream", "crxjs"],
+  "cSpell.words": [
+    "bili",
+    "cecream",
+    "crxjs",
+    "zhuzhan"
+  ],
   "less.lint.unknownAtRules": "ignore"
 }

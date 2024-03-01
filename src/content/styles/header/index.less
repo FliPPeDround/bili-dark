@@ -1,5 +1,5 @@
-// 入口
-.entry() {
+// 左入口
+.left-entry() {
   li {
     // 首页
     .entry-title,
@@ -8,12 +8,31 @@
     .download-entry,
     // 默认
     .default-entry {
-      @apply text-gray-4;
+      @apply text-gray-3;
 
       &:hover {
-        @apply text-light-4;
+        @apply text-light-3;
       }
     }
+  }
+}
+
+// 右入口
+.right-entry() {
+  li {
+    .right-entry-text,
+    .right-entry-icon {
+      @apply text-gray-3!;
+    }
+  }
+}
+
+// 按钮
+.btn() {
+  @apply bg-gray-6! text-gray-3!;
+
+  &:hover {
+    @apply bg-gray-7!;
   }
 }
 
@@ -22,11 +41,11 @@
   @apply bg-dark-8/95;
 
   .left-entry {
-    .entry();
+    .left-entry();
   }
 
   .right-entry {
-    .entry();
+    .right-entry();
 
     .header-upload-entry {
       span,
@@ -53,20 +72,26 @@
   // 下载
   .download-wrapper,
   // 用户信息
-  .avatar-panel-popover {
-    @apply bg-dark-8;
+  .avatar-panel-popover,
+  // vip
+  .panel-v2 {
+    @apply bg-dark-8! border-dark-8!;
   }
 
   // 大标题
-  .title {
+  .title,
+  .big-vip-title {
     @apply text-light-8!;
   }
   // 分割线
-  .game-left .manga-left {
+  .game-left,
+  .manga-left,
+  .content-bottom {
     @apply border-gray-5;
   }
 
-  .download-top-center {
+  .download-top-center,
+  .split-line {
     @apply bg-gray-5!;
   }
 
@@ -88,7 +113,30 @@
   // 漫画小标题
   .manga-right-title,
   // 下载信息
-  .download-top-left {
+  .download-top-left,
+  // 用户名
+  .nickname-item,
+  // 等级
+  .level-intro__title,
+  .level-intro__content--title,
+  .level-intro__link,
+  // 硬币数
+  .coin-item__num,
+  .count-num,
+  // vip权益
+  .text-wrap,
+  // 收藏
+  .header-fav-card__info--title,
+  // 历史
+  .header-tabs-panel__content--date,
+  .header-history-card__info--title,
+  // 上传
+  .upload-item .item-title,
+  .upload-item .item-icon,
+  // 动态
+  .user-name,
+  // 发布时间(动态)
+  .publish-time {
     @apply text-gray-3!;
   }
 
@@ -100,7 +148,15 @@
   // 游戏列表
   .game-right-list-item,
   // 下载标题
-  .download-top-title .main {
+  .download-top-title .main,
+  // 用户列表
+  .link-title,
+  .logout-item,
+  // 用户信息
+  .message-inner-list__item,
+  .level-intro__content--info,
+  // 动态
+  .dynamic-info-content {
     @apply text-gray-4!;
   }
 
@@ -108,9 +164,69 @@
   .game-right-list-item,
   .manga-right-list-item,
   .message-inner-list__item,
-  .header-dynamic-list-item {
+  .single-link-item,
+  .header-dynamic-list-item,
+  .header-fav-card,
+  .header-history-card,
+  .upload-item,
+  .logout-item {
     &:hover {
-      @apply bg-dark-1/80;
+      @apply bg-dark-1/80!;
     }
+  }
+
+  .header-tabs-panel {
+    @apply border-gray-5;
+
+    .header-tabs-panel__item:not(.header-tabs-panel__item--active) {
+      @apply text-gray-3;
+    }
+  }
+
+  .v-img {
+    @apply bg-dark-8;
+  }
+
+  .view-all-history-btn,
+  .wnd_bottom .r-l {
+    .btn();
+  }
+}
+
+// 动态面板
+.dynamic-panel-popover {
+  .header-tabs-panel {
+    @apply border-gray-5;
+
+    .header-tabs-panel__item:not(.header-tabs-panel__item--active) {
+      @apply text-gray-3;
+    }
+  }
+
+  .split-line {
+    @apply bg-dark-8!;
+
+    &::before {
+      @apply border-gray-5!;
+    }
+
+    .history-tip {
+      @apply bg-dark-8;
+    }
+  }
+}
+
+// 收藏面板
+.favorite-panel-popover {
+  .favorite-panel-popover__nav {
+    @apply border-gray-5;
+
+    .tab-item:not(.tab-item--active) {
+      @apply text-gray-3;
+    }
+  }
+
+  .content-bottom__btn--view {
+    @apply text-gray-3! border-gray-5;
   }
 }
