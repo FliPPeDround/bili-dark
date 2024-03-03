@@ -1,0 +1,42 @@
+.bili-header__channel {
+  @apply bg-dark-8!;
+
+  .channel-icons {
+    .channel-icons__item {
+      .icon-title {
+        @apply text-gray-4;
+      }
+
+      &:hover {
+        .icon-title {
+          @apply text-light-4;
+        }
+      }
+    }
+  }
+
+  .right-channel-container {
+    .channel-items__left {
+      @apply border-gray-5;
+
+      .channel-link,
+      .channel-entry-more__link {
+        @apply text-gray-4 bg-dark-3 border-gray-7 hover:bg-dark-4;
+      }
+    }
+
+    .channel-items__right {
+      .channel-link__right {
+        @apply text-gray-4 hover:text-light-4;
+      }
+    }
+  }
+}
+
+.channel-entry-popover {
+  .sub-item {
+    .name {
+      @apply text-gray-4!;
+    }
+  }
+}

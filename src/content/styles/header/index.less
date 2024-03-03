@@ -7,7 +7,9 @@
     // 下载
     .download-entry,
     // 默认
-    .default-entry {
+    .default-entry,
+    // mini首页
+    .mini-header__title {
       @apply text-gray-3;
 
       &:hover {
@@ -37,8 +39,10 @@
 }
 
 // 头部
-.bili-header__bar {
-  @apply bg-dark-8/95;
+.bili-header__bar,
+.bili-header__bar.slide-down {
+  background-color: #0c0c0dbf;
+  backdrop-filter: blur(32px);
 
   .left-entry {
     .left-entry();
@@ -58,8 +62,6 @@
 
 // 弹出框
 .v-popover-content {
-  @apply border-dark-8! bg-dark-8!;
-
   // 背景颜色
   // 番剧
   .anime,
@@ -86,8 +88,9 @@
   // 分割线
   .game-left,
   .manga-left,
-  .content-bottom {
-    @apply border-gray-5;
+  .content-bottom,
+  .channel-panel__column {
+    @apply border-gray-5!;
   }
 
   .download-top-center,
@@ -156,7 +159,9 @@
   .message-inner-list__item,
   .level-intro__content--info,
   // 动态
-  .dynamic-info-content {
+  .dynamic-info-content,
+  // 首页列表
+  .channel-panel__item {
     @apply text-gray-4!;
   }
 
@@ -169,10 +174,9 @@
   .header-fav-card,
   .header-history-card,
   .upload-item,
-  .logout-item {
-    &:hover {
-      @apply bg-dark-1/80!;
-    }
+  .logout-item,
+  .channel-panel__item {
+    @apply hover:bg-dark-1/80!;
   }
 
   .header-tabs-panel {
