@@ -1,0 +1,36 @@
+.floor-card {
+  @apply border-none border-dark-8! hover:bg-zinc8;
+
+  .floor-card-inner {
+    @apply p-10px cursor-pointer bg-dark-6/95 hover:bg-zinc8/95
+    border-solid border-1px rounded-6px border-zinc8;
+
+    backdrop-filter: blur(32px);
+
+    .cover-container {
+      @apply border-none;
+
+      .badge {
+        @apply bg-dark-3/40 text-gray-4 hover:bg-dark-4;
+
+        backdrop-filter: blur(32px);
+
+        .floor-title {
+          @apply text-gray-3;
+        }
+      }
+    }
+
+    .title {
+      @apply text-gray-3;
+    }
+  }
+
+  .layer {
+    @apply bg-dark-5! border-zinc8! border-solid border-1px;
+  }
+
+  .tiny {
+    @apply bg-dark-7!;
+  }
+}

@@ -1,0 +1,31 @@
+.bili-video-card {
+  // @apply bg-white rounded-6px;
+
+  .bili-video-card__wrap {
+    @apply p-10px cursor-pointer bg-dark-6/90 hover:bg-zinc8/90
+    border-solid border-1px rounded-6px border-zinc8;
+
+    backdrop-filter: blur(32px);
+
+    .bili-video-card__info--icon-text {
+      @apply bg-dark-1 text-gray;
+    }
+
+    .bili-video-card__info--tit {
+      a {
+        @apply text-gray-3;
+      }
+    }
+  }
+}
+
+.bili-video-card__skeleton {
+  @apply p-10px bg-dark-6
+  border-solid border-1px rounded-6px border-zinc8;
+
+  .bili-video-card__skeleton--cover,
+  .bili-video-card__skeleton--text,
+  .bili-video-card__skeleton--light {
+    @apply bg-zinc-8!;
+  }
+}

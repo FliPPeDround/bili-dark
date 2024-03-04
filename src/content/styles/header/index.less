@@ -31,11 +31,7 @@
 
 // 按钮
 .btn() {
-  @apply bg-gray-6! text-gray-3!;
-
-  &:hover {
-    @apply bg-gray-7!;
-  }
+  @apply bg-gray-6! text-gray-3! hover:bg-gray-7!;
 }
 
 // 头部
@@ -161,7 +157,10 @@
   // 动态
   .dynamic-info-content,
   // 首页列表
-  .channel-panel__item {
+  .channel-panel__item,
+  // 登录
+  .lt-text,
+  .register-tip {
     @apply text-gray-4!;
   }
 
@@ -187,13 +186,14 @@
     }
   }
 
-  .v-img {
-    @apply bg-dark-8;
-  }
-
   .view-all-history-btn,
   .wnd_bottom .r-l {
     .btn();
+  }
+
+  // 登录按钮
+  .login-btn {
+    @apply text-gray-3 before:bg-gray-6! hover:before:bg-gray-7!;
   }
 }
 
