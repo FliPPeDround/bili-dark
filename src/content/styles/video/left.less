@@ -29,11 +29,23 @@
         }
       }
     }
+
+    .bpx-player-video-inputbar {
+      @apply bg-dark-3;
+    }
+
+    .bpx-player-dm-input {
+      @apply caret-gray-4 text-gray-2;
+    }
+
+    .bui-button-blue {
+      @apply bg-sky-7/90 hover:bg-sky-6/90;
+    }
   }
 
   // 一键三连
   .video-toolbar-container {
-    @apply border-gray-5;
+    @apply border-zinc-7;
 
     .toolbar-left-item-wrap,
     .video-toolbar-right-item {
@@ -45,7 +57,7 @@
       &:hover {
         .video-toolbar-item-text,
         .video-toolbar-item-icon {
-          @apply text-gray-3;
+          @apply text-gray-2;
         }
       }
     }
@@ -58,7 +70,7 @@
 
   // tag
   .video-tag-container {
-    @apply border-gray-5;
+    @apply border-zinc-7;
 
     .tag-link,
     .show-more-btn {
@@ -85,5 +97,152 @@
         );
       }
     }
+  }
+
+  // 评论
+  .bili-comment {
+    @apply bg-dark-8;
+
+    .nav-title-text {
+      @apply text-gray-4!;
+    }
+
+    .part-symbol {
+      @apply border-zinc-7;
+    }
+
+    .hot {
+      .hot-sort {
+        @apply text-gray-3!;
+      }
+    }
+
+    .time {
+      .time-sort {
+        @apply text-gray-3!;
+      }
+    }
+  }
+
+  .reply-box-warp {
+    @apply border-zinc-8! bg-dark-4
+     hover:bg-dark-8! hover:border-zinc-8!;
+
+    .reply-box-textarea {
+      @apply placeholder-neutral-5 text-gray-3;
+    }
+  }
+
+  .focus-within {
+    @apply bg-dark-8! caret-neutral-5;
+  }
+
+  .emoji-btn,
+  .at-btn,
+  .image-btn {
+    @apply btn;
+  }
+
+  .reply-box-send {
+    @apply after:bg-sky-7/90;
+
+    .send-text {
+      @apply text-gray-4!;
+    }
+
+    &:hover {
+      .send-text {
+        @apply text-gray-2!;
+      }
+    }
+  }
+
+  // 评论表情弹窗
+  .emoji-panel {
+    @apply border-none;
+
+    .emoji-title,
+    .emoji-content {
+      @apply bg-dark-3/50 blur text-neutral-4;
+
+      .emoji-info {
+        @apply hover:bg-zinc-7;
+
+        .text-emoji {
+          @apply text-gray-3;
+        }
+      }
+    }
+
+    .emoji-tab {
+      @apply bg-dark-1;
+
+      .emoji-type {
+        @apply hover:bg-zinc-6;
+      }
+
+      .current-type {
+        @apply bg-zinc-6;
+      }
+    }
+  }
+
+  // @弹窗
+  .at-panel {
+    @apply bg-dark-3/50 blur border-none;
+
+    .panel-title {
+      @apply bg-dark-1 text-gray-4;
+    }
+
+    .ground-name {
+      @apply text-gray-4;
+    }
+
+    .at-user-item {
+      @apply hover:bg-zinc-7!;
+
+      .user-name {
+        @apply text-gray-4!;
+      }
+
+      .user-fan {
+        @apply text-gray-5!;
+      }
+    }
+  }
+
+  .reply-item {
+    /* stylelint-disable-next-line no-descending-specificity */
+    .user-name,
+    .reply-info {
+      @apply text-neutral-4!;
+    }
+
+    .reply-content {
+      @apply text-gray-3!;
+    }
+
+    .operation-list {
+      @apply bg-dark-8 text-gray-4 border-zinc-7 border-solid border-1px;
+
+      .operation-option {
+        &:hover {
+          @apply bg-dark-1/80;
+
+          .option-title {
+            @apply text-gray-3!;
+          }
+        }
+      }
+    }
+
+    .bottom-line {
+      @apply border-zinc-7;
+    }
+  }
+
+  .fixed-box {
+    @apply bg-dark-8 border-zinc-7;
   }
 }

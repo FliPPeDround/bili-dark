@@ -43,6 +43,60 @@
     .left-entry();
   }
 
+  .center-search__bar {
+    #nav-searchform {
+      @apply bg-dark-3! border-none!;
+
+      .nav-search-btn {
+        @apply text-gray-4! hover:bg-zinc-7!;
+      }
+    }
+
+    .nav-search-input {
+      @apply placeholder-gray-4!;
+    }
+
+    .is-focus {
+      .nav-search-content,
+      .nav-search-input {
+        @apply bg-dark-1! caret-gray-4 text-gray-3!;
+      }
+    }
+
+    .search-panel {
+      @apply bg-dark-3 border-none;
+
+      .suggest-item {
+        @apply text-gray-3! hover:bg-dark-1!;
+      }
+
+      .trending {
+        .title {
+          @apply text-gray-3!;
+        }
+
+        .trending-item {
+          @apply hover:bg-dark-1;
+        }
+
+        .trendings-rank {
+          @apply text-gray-3;
+        }
+
+        .trending-text {
+          @apply text-gray-4;
+        }
+      }
+    }
+
+    // .nav-search-input {
+    //   &:focus,
+    //   &:active {
+    //     @apply bg-dark-3! caret-gray-4 text-gray-3!;
+    //   }
+    // }
+  }
+
   .right-entry {
     .right-entry();
 
@@ -85,12 +139,12 @@
   .manga-left,
   .content-bottom,
   .channel-panel__column {
-    @apply border-gray-5!;
+    @apply border-zinc-7!;
   }
 
   .download-top-center,
   .split-line {
-    @apply bg-gray-5!;
+    @apply bg-zinc-7!;
   }
 
   // 番剧小标题
@@ -178,7 +232,7 @@
   }
 
   .header-tabs-panel {
-    @apply border-gray-5;
+    @apply border-zinc-7;
 
     .header-tabs-panel__item:not(.header-tabs-panel__item--active) {
       @apply text-gray-3;
@@ -199,7 +253,7 @@
 // 动态面板
 .dynamic-panel-popover {
   .header-tabs-panel {
-    @apply border-gray-5;
+    @apply border-zinc-7;
 
     .header-tabs-panel__item:not(.header-tabs-panel__item--active) {
       @apply text-gray-3;
@@ -210,7 +264,7 @@
     @apply bg-dark-8!;
 
     &::before {
-      @apply border-gray-5!;
+      @apply border-zinc-7!;
     }
 
     .history-tip {
@@ -222,7 +276,7 @@
 // 收藏面板
 .favorite-panel-popover {
   .favorite-panel-popover__nav {
-    @apply border-gray-5;
+    @apply border-zinc-7;
 
     .tab-item:not(.tab-item--active) {
       @apply text-gray-3;
@@ -230,6 +284,6 @@
   }
 
   .content-bottom__btn--view {
-    @apply text-gray-3! border-gray-5;
+    @apply text-gray-3! border-zinc-7;
   }
 }

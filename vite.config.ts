@@ -4,5 +4,8 @@ import UnoCSS from 'unocss/vite'
 import { manifest } from './manifest'
 
 export default defineConfig({
-  plugins: [UnoCSS({ mode: 'per-module' }), crx({ manifest })],
+  plugins: [
+    UnoCSS({ mode: 'per-module' }),
+    crx({ manifest }),
+  ],
 })
