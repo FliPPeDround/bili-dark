@@ -8,6 +8,11 @@ export const manifest = defineManifest({
   description: pkg.description,
   action: {
     default_popup: 'src/popup/index.html',
+    default_icon: {
+      16: 'public/icon-48.png',
+      48: 'public/icon-48.png',
+      128: 'public/icon-48.png',
+    },
   },
   content_scripts: [
     {
@@ -16,5 +21,10 @@ export const manifest = defineManifest({
       run_at: 'document_start',
     },
   ],
+  icons: {
+    16: 'public/icon-48.png',
+    48: 'public/icon-48.png',
+    128: 'public/icon-48.png',
+  },
   permissions: ['scripting', 'activeTab'],
 })

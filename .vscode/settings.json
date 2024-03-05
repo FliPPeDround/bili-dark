@@ -30,6 +30,8 @@
     "bili",
     "cecream",
     "crxjs",
+    "danmaku",
+    "qrcode",
     "zhuzhan"
   ],
   "less.lint.unknownAtRules": "ignore"

@@ -8,3 +8,52 @@
     }
   }
 }
+
+.van-popover {
+  @apply bg-dark-8! shadow-none border-zinc-7;
+}
+
+.video-tool-more-dropdown {
+  @apply bg-dark-8!;
+
+  .video-toolbar-item-icon,
+  .video-toolbar-item-text {
+    @apply text-gray-4!;
+  }
+}
+
+.video-share-dropdown {
+  @apply bg-dark-8!;
+
+  .dropdown-top {
+    @apply bg-dark-8! bg-gray-5;
+
+    .bar-left {
+      @apply text-gray-4!;
+
+      #check-timestamp {
+        @apply bg-dark-8! border-zinc-5!;
+      }
+    }
+
+    .copy-link {
+      @apply btn;
+    }
+
+    .dropdown-top-right {
+      box-shadow: -0.5px 0 0 #6b7280;
+    }
+
+    .qrcode-tips {
+      @apply text-gray-4!;
+    }
+  }
+
+  .dropdown-bottom {
+    @apply bg-dark-3!;
+
+    .share-btn-text {
+      @apply text-gray-3!;
+    }
+  }
+}

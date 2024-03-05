@@ -8,8 +8,82 @@
   .player-wrap {
     @apply bg-dark-8;
 
-    #bilibili-player-placeholder {
+    #bilibili-player-placeholder,
+    .bpx-player-container {
       @apply shadow-none;
+    }
+
+    .bpx-player-sending-area {
+      .bpx-player-sending-bar {
+        @apply bg-dark-8;
+
+        .bpx-player-video-info-online,
+        .bpx-player-video-info-divide,
+        .bpx-player-video-info-dm {
+          @apply text-gray-4!;
+        }
+
+        .bui-danmaku-switch,
+        .bpx-player-dm-setting {
+          @apply fill-gray-4;
+        }
+      }
+    }
+  }
+
+  // 一键三连
+  .video-toolbar-container {
+    @apply border-gray-5;
+
+    .toolbar-left-item-wrap,
+    .video-toolbar-right-item {
+      .video-toolbar-item-text,
+      .video-toolbar-item-icon {
+        @apply text-gray-4;
+      }
+
+      &:hover {
+        .video-toolbar-item-text,
+        .video-toolbar-item-icon {
+          @apply text-gray-3;
+        }
+      }
+    }
+  }
+
+  // 简介
+  .desc-info-text {
+    @apply text-gray-3;
+  }
+
+  // tag
+  .video-tag-container {
+    @apply border-gray-5;
+
+    .tag-link,
+    .show-more-btn {
+      @apply btn;
+    }
+  }
+
+  // 活动
+  .activity-m-v1 {
+    @apply bg-dark-8;
+
+    .inside-wrp {
+      @apply border-zinc-6;
+
+      .left {
+        @apply text-gray-4;
+      }
+
+      .inside-bg::after {
+        background-image: linear-gradient(
+          to right,
+          rgb(24 24 24),
+          transparent 30%
+        );
+      }
     }
   }
 }
