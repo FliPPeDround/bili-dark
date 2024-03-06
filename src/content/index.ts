@@ -1,54 +1,38 @@
 import './styles/index.less'
 
-// async function biliDark() {
-//   document.documentElement.classList.add('bili-dark')
-// }
-// biliDark()
-// alert("content-script.js 已经注入");
+chrome.runtime.onMessage.addListener((request) => {
+  toggleTheme(request)
+})
 
-function setDarkMode() {
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-  const setting = localStorage.getItem('bili-color-schema') || 'auto'
-  if (setting === 'dark' || (prefersDark && setting !== 'light'))
-    document.documentElement.classList.toggle('bili-dark', true)
-  else
-    document.documentElement.classList.toggle('bili-dark', false)
-}
-setDarkMode()
-
-chrome.runtime.onMessage.addListener(
-  (request, _sender, _sendResponse) => {
-    // console.log(sender)
-    // localStorage.setItem('bili-color-schema', request['bili-color-schema'])
-    // setDarkMode()
-    toggleTheme(request)
-  },
-)
+type ColorSchema = 'light' | 'dark' | 'auto'
 
 interface RequestType {
-  biliColorSchema: 'light' | 'dark' | 'auto'
+  biliColorSchema: ColorSchema
   targetPoint: [number, number]
 }
 
-function toggleTheme(request: RequestType) {
-  const [x, y] = request.targetPoint
-  const endRadius = Math.hypot(
-    Math.max(x, innerWidth - x),
-    Math.max(y, innerHeight - y),
-  )
+function getInitialRequest(): RequestType {
+  return {
+    biliColorSchema: (localStorage.getItem('bili-color-schema') as ColorSchema) || 'auto',
+    targetPoint: [0, 0],
+  }
+}
 
-  let isDark: boolean
+function toggleTheme(request: RequestType = getInitialRequest()) {
+  const [x, y] = request.targetPoint
+  const endRadius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y))
+
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+  const isDark = request.biliColorSchema === 'dark' || (request.biliColorSchema === 'auto' && prefersDark)
 
   // eslint-disable-next-line ts/ban-ts-comment
   // @ts-expect-error
-  const transition = document.startViewTransition && document.startViewTransition(() => {
-    const root = document.documentElement
-    isDark = root.classList.contains('bili-dark')
-    root.classList.remove(isDark ? 'bili-dark' : 'light')
-    root.classList.add(isDark ? 'light' : 'bili-dark')
+  const transition = document.startViewTransition?.(() => {
+    document.documentElement.classList.toggle('bili-dark', isDark)
+    localStorage.setItem('bili-color-schema', request.biliColorSchema)
   })
 
-  transition.ready.then(() => {
+  transition?.ready.then(() => {
     const clipPath = [
       `circle(0px at ${x}px ${y}px)`,
       `circle(${endRadius}px at ${x}px ${y}px)`,
@@ -65,3 +49,12 @@ function toggleTheme(request: RequestType) {
     )
   })
 }
+
+function applyInitialDarkMode() {
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting: ColorSchema = (localStorage.getItem('bili-color-schema') as ColorSchema) || 'auto'
+  const isDark = setting === 'dark' || (setting === 'auto' && prefersDark)
+  document.documentElement.classList.toggle('bili-dark', isDark)
+}
+
+applyInitialDarkMode()

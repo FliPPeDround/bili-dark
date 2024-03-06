@@ -12,7 +12,8 @@
         <div class="text-2xl c-lightBlue">Bili Dark</div>
       </header>
       <div class="text-4xl">
-        <button id="btn" class="btn">Bili Dark</button>
+        <button id="btn-dark" class="btn">Bili Dark</button>
+        <button id="btn-light" class="btn bg-light">Bili Light</button>
       </div>
     </div>
 
@@ -20,8 +21,8 @@
       import 'virtual:uno.css'
       import '@unocss/reset/tailwind.css'
 
-      const btnEl = document.getElementById('btn')
-      btnEl.addEventListener('click', async (event) => {
+      const btnLEl = document.getElementById('btn-light')
+      btnLEl.addEventListener('click', async (event) => {
         const window = await chrome.windows.getCurrent()
         const x = (event.screenX - window.left) / devicePixelRatio
         const y = event.clientY
@@ -33,6 +34,23 @@
 
         const resp = await chrome.tabs.sendMessage(tab.id, {
           biliColorSchema: 'light',
+          targetPoint: [x, y],
+        })
+      })
+
+      const btnDEl = document.getElementById('btn-dark')
+      btnDEl.addEventListener('click', async (event) => {
+        const window = await chrome.windows.getCurrent()
+        const x = (event.screenX - window.left) / devicePixelRatio
+        const y = event.clientY
+
+        const [tab] = await chrome.tabs.query({
+          active: true,
+          currentWindow: true,
+        })
+
+        const resp = await chrome.tabs.sendMessage(tab.id, {
+          biliColorSchema: 'dark',
           targetPoint: [x, y],
         })
       })
