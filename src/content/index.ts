@@ -4,7 +4,7 @@ chrome.runtime.onMessage.addListener((request) => {
   toggleTheme(request)
 })
 
-type ColorSchema = 'light' | 'dark' | 'auto'
+type ColorSchema = 'light' | 'dark'
 
 interface RequestType {
   biliColorSchema: ColorSchema
@@ -13,7 +13,7 @@ interface RequestType {
 
 function getInitialRequest(): RequestType {
   return {
-    biliColorSchema: (localStorage.getItem('bili-color-schema') as ColorSchema) || 'auto',
+    biliColorSchema: <ColorSchema>localStorage.getItem('bili-color-schema') || 'dark',
     targetPoint: [0, 0],
   }
 }
@@ -22,8 +22,7 @@ function toggleTheme(request: RequestType = getInitialRequest()) {
   const [x, y] = request.targetPoint
   const endRadius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y))
 
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-  const isDark = request.biliColorSchema === 'dark' || (request.biliColorSchema === 'auto' && prefersDark)
+  const isDark = request.biliColorSchema === 'dark'
 
   // eslint-disable-next-line ts/ban-ts-comment
   // @ts-expect-error
@@ -42,7 +41,7 @@ function toggleTheme(request: RequestType = getInitialRequest()) {
         clipPath: isDark ? clipPath.reverse() : clipPath,
       },
       {
-        duration: 800,
+        duration: 500,
         easing: 'ease-in',
         pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
       },
@@ -51,9 +50,8 @@ function toggleTheme(request: RequestType = getInitialRequest()) {
 }
 
 function applyInitialDarkMode() {
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-  const setting: ColorSchema = (localStorage.getItem('bili-color-schema') as ColorSchema) || 'auto'
-  const isDark = setting === 'dark' || (setting === 'auto' && prefersDark)
+  const setting = <ColorSchema>localStorage.getItem('bili-color-schema')
+  const isDark = setting === 'dark'
   document.documentElement.classList.toggle('bili-dark', isDark)
 }
 

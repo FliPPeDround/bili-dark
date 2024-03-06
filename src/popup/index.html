@@ -2,6 +2,9 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
+    <style>
+      @import url('./checkbox.css');
+    </style>
   </head>
   <body
     class="bg-gray-800 size-xs animated animated-zoom-in-down animated-fast text-gray-4"
@@ -11,9 +14,9 @@
         <div class="i-ant-design:bilibili-filled text-[#de4c67] text-6xl"></div>
         <div class="text-2xl c-lightBlue">Bili Dark</div>
       </header>
-      <div class="text-4xl">
-        <button id="btn-dark" class="btn">Bili Dark</button>
-        <button id="btn-light" class="btn bg-light">Bili Light</button>
+      <div class="switch-box">
+        <input type="checkbox" id="dark" />
+        <label class="switch" for="switch" />
       </div>
     </div>
 
@@ -21,10 +24,9 @@
       import 'virtual:uno.css'
       import '@unocss/reset/tailwind.css'
 
-      const btnLEl = document.getElementById('btn-light')
-      btnLEl.addEventListener('click', async (event) => {
+      async function sendTheme(theme, event) {
         const window = await chrome.windows.getCurrent()
-        const x = (event.screenX - window.left) / devicePixelRatio
+        const x = event.screenX - window.left
         const y = event.clientY
 
         const [tab] = await chrome.tabs.query({
@@ -33,26 +35,16 @@
         })
 
         const resp = await chrome.tabs.sendMessage(tab.id, {
-          biliColorSchema: 'light',
+          biliColorSchema: theme,
           targetPoint: [x, y],
         })
-      })
-
-      const btnDEl = document.getElementById('btn-dark')
-      btnDEl.addEventListener('click', async (event) => {
-        const window = await chrome.windows.getCurrent()
-        const x = (event.screenX - window.left) / devicePixelRatio
-        const y = event.clientY
-
-        const [tab] = await chrome.tabs.query({
-          active: true,
-          currentWindow: true,
-        })
-
-        const resp = await chrome.tabs.sendMessage(tab.id, {
-          biliColorSchema: 'dark',
-          targetPoint: [x, y],
-        })
+      }
+      const el = document.querySelector('#dark')
+      const setting = localStorage.getItem('bili-color-schema') || 'dark'
+      el.checked = setting === 'dark'
+      el.addEventListener('click', async (event) => {
+        const theme = el.checked ? 'light' : 'dark'
+        await sendTheme(theme, event)
       })
     </script>
   </body>

@@ -34,6 +34,7 @@
     "@crxjs/vite-plugin": "2.0.0-beta.23",
     "@ffflorian/jszip-cli": "^3.6.2",
     "@iconify-json/ant-design": "^1.1.15",
+    "@iconify-json/carbon": "^1.1.31",
     "@types/chrome": "^0.0.262",
     "@unocss/eslint-config": "^0.58.5",
     "@unocss/eslint-plugin": "^0.58.5",
