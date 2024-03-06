@@ -5,7 +5,14 @@ import { manifest } from './manifest'
 
 export default defineConfig({
   plugins: [
-    UnoCSS({ mode: 'per-module' }),
+    UnoCSS(),
     crx({ manifest }),
   ],
+  server: {
+    strictPort: true,
+    port: 5173,
+    hmr: {
+      clientPort: 5173,
+    },
+  },
 })

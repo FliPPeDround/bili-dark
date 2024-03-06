@@ -1,13 +1,41 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
   </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="./main.ts"></script>
+  <body
+    class="bg-gray-800 size-xs animated animated-zoom-in-down animated-fast text-gray-4"
+  >
+    <div class="">
+      <header class="flex flex-col justify-center items-center">
+        <div class="i-ant-design:bilibili-filled text-[#de4c67] text-6xl"></div>
+        <div class="text-2xl c-lightBlue">Bili Dark</div>
+      </header>
+      <div class="text-4xl">
+        <button id="btn" class="btn">Bili Dark</button>
+      </div>
+    </div>
+
+    <script type="module">
+      import 'virtual:uno.css'
+      import '@unocss/reset/tailwind.css'
+
+      const btnEl = document.getElementById('btn')
+      btnEl.addEventListener('click', async (event) => {
+        const window = await chrome.windows.getCurrent()
+        const x = (event.screenX - window.left) / devicePixelRatio
+        const y = event.clientY
+
+        const [tab] = await chrome.tabs.query({
+          active: true,
+          currentWindow: true,
+        })
+
+        const resp = await chrome.tabs.sendMessage(tab.id, {
+          biliColorSchema: 'light',
+          targetPoint: [x, y],
+        })
+      })
+    </script>
   </body>
 </html>

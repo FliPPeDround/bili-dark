@@ -14,6 +14,9 @@ devDependencies:
   '@ffflorian/jszip-cli':
     specifier: ^3.6.2
     version: 3.6.2(typescript@5.2.2)
+  '@iconify-json/ant-design':
+    specifier: ^1.1.15
+    version: 1.1.15
   '@types/chrome':
     specifier: ^0.0.262
     version: 0.0.262
@@ -23,6 +26,9 @@ devDependencies:
   '@unocss/eslint-plugin':
     specifier: ^0.58.5
     version: 0.58.5(eslint@8.57.0)(typescript@5.2.2)
+  '@unocss/reset':
+    specifier: ^0.58.5
+    version: 0.58.5
   concurrently:
     specifier: ^8.2.2
     version: 8.2.2
@@ -77,6 +83,9 @@ devDependencies:
   unocss:
     specifier: ^0.58.5
     version: 0.58.5(postcss@8.4.35)(vite@5.1.4)
+  unocss-preset-extra:
+    specifier: ^0.5.3
+    version: 0.5.3(unocss@0.58.5)
   vite:
     specifier: ^5.1.4
     version: 5.1.4(less@4.2.0)(stylus@0.62.0)
@@ -944,6 +953,12 @@ packages:
 
   /@humanwhocodes/object-schema@2.0.2:
     resolution: {integrity: sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==}
+    dev: true
+
+  /@iconify-json/ant-design@1.1.15:
+    resolution: {integrity: sha512-E8XLyDo2HWVeVT8ViNTxF2+0Vgcox8FC73G4v64AM+lvlWpERcY90g7jXoBOeykl1pQCf1awkQUwjkynZ8Xb7A==}
+    dependencies:
+      '@iconify/types': 2.0.0
     dev: true
 
   /@iconify/types@2.0.0:
@@ -6831,6 +6846,14 @@ packages:
   /universalify@2.0.0:
     resolution: {integrity: sha512-hAZsKq7Yy11Zu1DE0OzWjw7nnLZmJZYTDZZyEFHZdUhV8FkH5MCfoU1XMaxXovpyW5nq5scPqq0ZDP9Zyl04oQ==}
     engines: {node: '>= 10.0.0'}
+    dev: true
+
+  /unocss-preset-extra@0.5.3(unocss@0.58.5):
+    resolution: {integrity: sha512-rRosBmJ3S8/97o/l4J1lc3AJnSGMSD1FgDs4bvUWmrz2OQvPheuZluL8xULEd5MGwHjw4vAwYkue114pnVelzA==}
+    peerDependencies:
+      unocss: '>= 0.31.0 < 1'
+    dependencies:
+      unocss: 0.58.5(postcss@8.4.35)(vite@5.1.4)
     dev: true
 
   /unocss@0.58.5(postcss@8.4.35)(vite@5.1.4):
