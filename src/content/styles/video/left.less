@@ -124,6 +124,28 @@
     }
   }
 
+  .no-login-mask {
+    @apply border-zinc-8! bg-dark-4;
+
+    .login-btn {
+      @apply btn bg-dark-1!;
+    }
+  }
+
+  .login-limit-mask {
+    .mask-top {
+      @apply bg-gradient-to-t from-dark-2;
+    }
+
+    .mask-bottom {
+      @apply bg-dark-2;
+    }
+  }
+
+  .login-prompt {
+    @apply btn;
+  }
+
   .reply-box-warp {
     @apply border-zinc-8! bg-dark-4
      hover:bg-dark-8! hover:border-zinc-8!;
