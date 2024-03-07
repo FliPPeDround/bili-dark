@@ -7,45 +7,36 @@
     </style>
   </head>
   <body
-    class="bg-gray-800 size-xs animated animated-zoom-in-down animated-fast text-gray-4"
+    class="bg-gray-8 size-xs animated animated-zoom-in-down animated-fast text-gray-4 p2"
   >
-    <div class="">
-      <header class="flex flex-col justify-center items-center">
-        <div class="i-ant-design:bilibili-filled text-[#de4c67] text-6xl"></div>
-        <div class="text-2xl c-lightBlue">Bili Dark</div>
+    <div>
+      <header class="flex flex-col justify-center items-center my-3">
+        <!-- <div class="i-ant-design:bilibili-filled text-[#de4c67] text-6xl"></div> -->
+        <img src="/icon-48.png" alt="" />
+        <div
+          class="text-2xl c-pink-4 font-bold italic tracking-widest text-shadow-xl animate-pulse select-none"
+        >
+          Bili Dark
+        </div>
       </header>
-      <div class="switch-box">
-        <input type="checkbox" id="dark" />
-        <label class="switch" for="switch" />
+      <div
+        class="flex flex-row items-center rounded-md text-sm bg-gray-1/25 elevation-3 elevation-opacity-50 text-center p-4 m-4 py-1.5 rounded-md justify-between"
+      >
+        <span class="text-gray-2 text-sm">切换主题：</span>
+        <div class="relative">
+          <input
+            type="checkbox"
+            id="dark"
+            class="w-60px h-30px absolute top-0 left-0 opacity-0 m-0 z-1 cursor-pointer"
+          />
+          <label
+            class="w-60px h-30px rounded-45px bg-pink-2 flex p-6px items-center transition='colors duration-0.3s ease' switch"
+            for="switch"
+          />
+        </div>
       </div>
     </div>
 
-    <script type="module">
-      import 'virtual:uno.css'
-      import '@unocss/reset/tailwind.css'
-
-      async function sendTheme(theme, event) {
-        const window = await chrome.windows.getCurrent()
-        const x = event.screenX - window.left
-        const y = event.clientY
-
-        const [tab] = await chrome.tabs.query({
-          active: true,
-          currentWindow: true,
-        })
-
-        const resp = await chrome.tabs.sendMessage(tab.id, {
-          biliColorSchema: theme,
-          targetPoint: [x, y],
-        })
-      }
-      const el = document.querySelector('#dark')
-      const setting = localStorage.getItem('bili-color-schema') || 'dark'
-      el.checked = setting === 'dark'
-      el.addEventListener('click', async (event) => {
-        const theme = el.checked ? 'light' : 'dark'
-        await sendTheme(theme, event)
-      })
-    </script>
+    <script type="module" src="./main.ts"></script>
   </body>
 </html>

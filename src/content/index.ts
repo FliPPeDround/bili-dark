@@ -1,4 +1,5 @@
 import './styles/index.less'
+import { getBrowserZoom } from '@/utils'
 
 chrome.runtime.onMessage.addListener((request) => {
   toggleTheme(request)
@@ -19,7 +20,9 @@ function getInitialRequest(): RequestType {
 }
 
 function toggleTheme(request: RequestType = getInitialRequest()) {
-  const [x, y] = request.targetPoint
+  const [zoomX, zoomY] = getBrowserZoom()
+  const [targetX, targetY] = request.targetPoint
+  const [x, y] = [targetX / zoomX, targetY / zoomY]
   const endRadius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y))
 
   const isDark = request.biliColorSchema === 'dark'
@@ -41,7 +44,7 @@ function toggleTheme(request: RequestType = getInitialRequest()) {
         clipPath: isDark ? clipPath.reverse() : clipPath,
       },
       {
-        duration: 500,
+        duration: 600,
         easing: 'ease-in',
         pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
       },
