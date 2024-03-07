@@ -83,7 +83,7 @@
 }
 
 .title {
-  @apply text-gray-3 hover:text-gray-1;
+  @apply text-gray-3! hover:text-gray-1!;
 }
 
 .split-line {
@@ -100,4 +100,32 @@
 
 .charge-btn-loaded {
   @apply hover:bg-zinc-7;
+}
+
+.base-video-sections-v1 {
+  @apply bg-dark-7;
+
+  .first-line-title {
+    @apply text-gray-3;
+  }
+
+  .second-line_right {
+    @apply btn;
+  }
+
+  .border-bottom-line {
+    @apply bg-zinc-7;
+  }
+
+  .video-episode-card {
+    @apply hover:bg-dark-3;
+  }
+
+  .video-episode-card__info-playing {
+    @apply bg-dark-3;
+  }
+
+  .video-episode-card__info-title {
+    @apply text-gray-3!;
+  }
 }
