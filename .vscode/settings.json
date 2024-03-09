@@ -33,6 +33,7 @@
     "danmaku",
     "ffflorian",
     "qrcode",
+    "trendings",
     "zhuzhan"
   ],
   "less.lint.unknownAtRules": "ignore"

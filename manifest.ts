@@ -16,7 +16,10 @@ export const manifest = defineManifest({
   },
   content_scripts: [
     {
-      matches: ['*://www.bilibili.com/*'],
+      matches: [
+        '*://www.bilibili.com/*',
+        '*://search.bilibili.com/*',
+      ],
       js: ['src/content/index.ts'],
       run_at: 'document_start',
     },

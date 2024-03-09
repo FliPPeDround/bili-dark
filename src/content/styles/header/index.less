@@ -1,3 +1,5 @@
+@import './search-panel.less';
+
 // 左入口
 .left-entry() {
   li {
@@ -27,6 +29,11 @@
       @apply text-gray-3!;
     }
   }
+}
+
+// 搜索页
+#bili-header-container {
+  @apply bg-dark-8!;
 }
 
 // 头部
@@ -61,44 +68,8 @@
 
     .search-panel {
       @apply bg-dark-3 border-none;
-
-      .suggest-item {
-        @apply text-gray-3! hover:bg-dark-1!;
-      }
-
-      .history {
-        @apply text-gray-3;
-
-        .history-item {
-          @apply btn;
-        }
-      }
-
-      .trending {
-        .title {
-          @apply text-gray-3!;
-        }
-
-        .trending-item {
-          @apply hover:bg-dark-1;
-        }
-
-        .trendings-rank {
-          @apply text-gray-3;
-        }
-
-        .trending-text {
-          @apply text-gray-4;
-        }
-      }
+      .search-panel();
     }
-
-    // .nav-search-input {
-    //   &:focus,
-    //   &:active {
-    //     @apply bg-dark-3! caret-gray-4 text-gray-3!;
-    //   }
-    // }
   }
 
   .right-entry {
