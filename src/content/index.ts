@@ -1,9 +1,13 @@
+import darkVar from './styles/var/dark.less?raw'
+import './styles/toggle.less'
 import './styles/index.less'
 import { getBrowserZoom } from '@/utils'
 
 chrome.runtime.onMessage.addListener((request) => {
   toggleTheme(request)
 })
+
+chrome.runtime.sendMessage(getInitialRequest().biliColorSchema)
 
 type ColorSchema = 'light' | 'dark'
 
@@ -26,12 +30,13 @@ function toggleTheme(request: RequestType = getInitialRequest()) {
   const endRadius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y))
 
   const isDark = request.biliColorSchema === 'dark'
+  const stylesEl = document.getElementById('bili-dark-styles')
 
   // eslint-disable-next-line ts/ban-ts-comment
   // @ts-expect-error
   const transition = document.startViewTransition?.(() => {
     document.documentElement.classList.toggle('bili-dark', isDark)
-    localStorage.setItem('bili-color-schema', request.biliColorSchema)
+    stylesEl.textContent = isDark ? darkVar : ''
   })
 
   transition?.ready.then(() => {
@@ -49,6 +54,7 @@ function toggleTheme(request: RequestType = getInitialRequest()) {
         pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
       },
     )
+    localStorage.setItem('bili-color-schema', request.biliColorSchema)
   })
 }
 
@@ -56,6 +62,10 @@ function applyInitialDarkMode() {
   const setting = <ColorSchema>localStorage.getItem('bili-color-schema')
   const isDark = setting === 'dark'
   document.documentElement.classList.toggle('bili-dark', isDark)
+  const stylesEl = document.createElement('style')
+  stylesEl.id = 'bili-dark-styles'
+  stylesEl.textContent = isDark ? darkVar : ''
+  document.head.appendChild(stylesEl)
 }
 
 applyInitialDarkMode()
