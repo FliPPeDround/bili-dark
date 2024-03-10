@@ -17,9 +17,13 @@ async function sendTheme(theme, event) {
   })
 }
 
+let setting = 'dark'
+chrome.runtime.onMessage.addListener((request) => {
+  setting = request
+})
+
 const switchEl = <HTMLInputElement>document.getElementById('dark')
-const setting = localStorage.getItem('bili-color-schema') || 'dark'
-switchEl.checked = setting === 'dark'
+switchEl.checked = setting !== 'dark'
 switchEl.addEventListener('click', async (event) => {
   const theme = switchEl.checked ? 'light' : 'dark'
   await sendTheme(theme, event)
