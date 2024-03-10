@@ -1,6 +1,6 @@
 {
-  "watch": ["src/content/styles"],
-  "ignore": ["src/content/styles/index.less"],
+  "watch": ["src/content"],
+  "ignore": ["src/content/styles/index.less", "src/content/styles_v2/index.less"],
   "ext": "less",
   "exec": "node scripts/compileStyle.js"
 }

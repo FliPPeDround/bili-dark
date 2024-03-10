@@ -1,0 +1,32 @@
+.search-layout {
+  .search-fixed-header {
+    @apply bg-dark-blur;
+
+    .search-panel {
+      @apply bg-dark-3;
+    }
+  }
+
+  .search-input-wrap,
+  .search-input-active,
+  .search-input-focus {
+    @apply bg-dark-3! border-none;
+
+    .search-input-el {
+      @apply placeholder-gray-4 text-gray-3 caret-gray-4;
+    }
+
+    .search-panel {
+      @apply bg-dark-3;
+
+      .suggest-item,
+      .trending-item {
+        @apply hover:bg-dark-1!;
+      }
+
+      .history-item {
+        @apply btn;
+      }
+    }
+  }
+}

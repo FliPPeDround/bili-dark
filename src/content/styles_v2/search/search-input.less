@@ -1,0 +1,42 @@
+@import './../header/search-panel.less';
+
+.search-input-wrap,
+.search-input-active,
+.search-input-focus {
+  @apply bg-dark-3! border-none hover:bg-dark-2;
+
+  .search-icon {
+    @apply text-sky-7/90;
+  }
+
+  .clear-icon {
+    @apply bg-dark-2;
+
+    use {
+      @apply fill-gray-5;
+    }
+  }
+
+  .search-button {
+    @apply blue-btn border-none;
+  }
+
+  .search-input-el {
+    @apply placeholder-gray-4 text-gray-3 caret-gray-4;
+  }
+
+  .search-panel {
+    @apply bg-dark-blur;
+
+    // @apply bg-dark-3 border-none;
+    .search-panel();
+  }
+}
+
+.search-fixed-header {
+  @apply bg-dark-8/75 blur;
+
+  .search-panel {
+    @apply bg-dark-3;
+  }
+}

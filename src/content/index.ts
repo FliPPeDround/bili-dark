@@ -1,6 +1,7 @@
-import darkVar from './styles/var/dark.less?raw'
-import './styles/toggle.less'
-import './styles/index.less'
+import './styles_v2/toggle.less'
+import './styles_v2/index.less'
+import darkVar from './styles_v2/var/dark.less?raw'
+
 import { getBrowserZoom } from '@/utils'
 
 chrome.runtime.onMessage.addListener((request) => {

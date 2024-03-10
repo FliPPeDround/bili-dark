@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 
-const targetFilePath = './src/content/styles/index.less'
+const targetFilePath = './src/content/styles_v2/index.less'
 
 try {
   const styleRow = readFileSync(targetFilePath, 'utf8')

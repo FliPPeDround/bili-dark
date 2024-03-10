@@ -1,0 +1,39 @@
+// 头部
+.bili-header__bar,
+.bili-header__bar.slide-down,
+.header-channel {
+  @apply bg-dark-8/75 blur;
+
+  #nav-searchform {
+    @apply bg-dark-3! border-none!;
+
+    .nav-search-btn {
+      @apply text-gray-4! hover:bg-dark-1!;
+    }
+  }
+
+  .search-panel {
+    @apply bg-dark-3;
+
+    .suggest-item,
+    .trending-item {
+      @apply hover:bg-dark-1!;
+    }
+
+    .history-item {
+      @apply btn;
+    }
+  }
+}
+
+.slide-down {
+  @apply shadow-none;
+}
+
+// 动态按钮
+.v-popover-content {
+  .view-all-history-btn,
+  .wnd_bottom .r-l {
+    @apply long-btn;
+  }
+}
