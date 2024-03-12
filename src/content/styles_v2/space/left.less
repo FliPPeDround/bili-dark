@@ -1,0 +1,67 @@
+.col-1 {
+  @apply bg-dark-4! border-none!;
+}
+
+// 按钮
+.more,
+.play-all-channel {
+  @apply btn;
+}
+
+.count {
+  @apply btn before:bg-none;
+}
+
+// 置顶
+.i-pin-v {
+  .i-pin-title {
+    @apply title;
+  }
+}
+
+// 视频
+.fakeDanmu-item {
+  .title {
+    @apply title;
+  }
+
+  .video-desc {
+    @apply desc;
+  }
+}
+
+// 番剧
+.bangumi {
+  .b-img__inner {
+    @apply bg-dark-4;
+
+    img {
+      @apply shadow-none rounded-md;
+    }
+  }
+
+  .detail {
+    .title {
+      @apply title;
+    }
+
+    .desc {
+      @apply desc;
+    }
+
+    .faved {
+      @apply long-btn;
+    }
+  }
+}
+
+// 频道
+.channel {
+  .channel-item {
+    @apply border-zinc-5!;
+  }
+
+  .channel-name {
+    @apply title!;
+  }
+}
