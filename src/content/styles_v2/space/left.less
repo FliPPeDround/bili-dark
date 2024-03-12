@@ -1,3 +1,5 @@
+@import './../common/reply-box.less';
+
 .col-1 {
   @apply bg-dark-4! border-none!;
 }
@@ -64,4 +66,31 @@
   .channel-name {
     @apply title!;
   }
+}
+
+// 专栏
+.article-content {
+  @apply border-zinc5;
+
+  .article-title {
+    @apply title;
+  }
+}
+
+// 动态
+.bili-dyn-item {
+  --bg1: #222;
+  --bg2: #2d2d2d;
+
+  @apply border-none!;
+
+  .bili-dyn-card-goods__wrap {
+    @apply bg-dark-4;
+  }
+
+  .bili-popover {
+    @apply shadow-none!;
+  }
+
+  .reply-box();
 }

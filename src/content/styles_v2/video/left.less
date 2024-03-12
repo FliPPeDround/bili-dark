@@ -1,3 +1,5 @@
+@import './../common/reply-box.less';
+
 .left-container {
   .player-wrap {
     #bilibili-player-placeholder,
@@ -5,58 +7,5 @@
       @apply shadow-none;
     }
   }
-
-  // 评论框
-  .reply-box-warp {
-    @apply border-zinc-8! bg-dark-5!
-     hover:bg-dark-8! hover:border-zinc-8!;
-  }
-
-  // 插入按钮
-  .emoji-btn,
-  .at-btn,
-  .image-btn {
-    @apply btn;
-  }
-
-  // 发送按钮
-  .reply-box-send {
-    @apply after:bg-sky-7/90;
-
-    .send-text {
-      @apply text-gray-3!;
-    }
-
-    &:hover {
-      .send-text {
-        @apply text-gray-2!;
-      }
-    }
-  }
-  // 评论表情弹窗
-  .emoji-panel {
-    @apply border-none;
-
-    .emoji-title,
-    .emoji-content {
-      @apply bg-dark-blur;
-    }
-
-    .emoji-tab {
-      @apply bg-dark-1;
-
-      .current-type {
-        @apply bg-dark-4!;
-      }
-    }
-  }
-
-  // @弹窗
-  .at-panel {
-    @apply bg-dark-blur border-none;
-
-    .panel-title {
-      @apply bg-dark-1 text-gray-3;
-    }
-  }
+  .reply-box();
 }
