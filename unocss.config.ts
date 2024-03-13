@@ -12,7 +12,7 @@ export default defineConfig({
     ['blue-btn', 'bg-sky-7/90 hover:bg-sky-6/90'],
     ['long-btn', 'bg-gray-7! text-gray-3! hover:bg-gray-6!'],
     ['bg-dark-blur', 'bg-dark-4/70 blur'],
-    ['card-wrap', 'p-10px cursor-pointer bg-dark-6/90 hover:bg-zinc8/90 border-solid border-1px rounded-6px border-zinc8 blur'],
+    ['card-wrap', 'p-10px cursor-pointer bg-#242628 hover:bg-#1f2022 border-solid border-1px rounded-6px border-zinc8 blur'],
     ['title', 'text-gray3 hover:text-gray1'],
     ['desc', 'text-gray4'],
   ],

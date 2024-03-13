@@ -1,6 +1,5 @@
 import './styles_v2/toggle.less'
 import './styles_v2/index.less'
-import darkVar from './styles_v2/var/dark.less?raw'
 
 import { getBrowserZoom } from '@/utils'
 
@@ -10,7 +9,7 @@ chrome.runtime.onMessage.addListener((request) => {
 
 chrome.runtime.sendMessage(getInitialRequest().biliColorSchema)
 
-type ColorSchema = 'light' | 'dark'
+type ColorSchema = 'light' | 'bili-dark'
 
 interface RequestType {
   biliColorSchema: ColorSchema
@@ -19,7 +18,7 @@ interface RequestType {
 
 function getInitialRequest(): RequestType {
   return {
-    biliColorSchema: <ColorSchema>localStorage.getItem('bili-color-schema') || 'dark',
+    biliColorSchema: <ColorSchema>localStorage.getItem('bili-color-schema') || 'bili-dark',
     targetPoint: [0, 0],
   }
 }
@@ -30,14 +29,13 @@ function toggleTheme(request: RequestType = getInitialRequest()) {
   const [x, y] = [targetX / zoomX, targetY / zoomY]
   const endRadius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y))
 
-  const isDark = request.biliColorSchema === 'dark'
-  const stylesEl = document.getElementById('bili-dark-styles')
+  const isDark = request.biliColorSchema === 'bili-dark'
+  // const stylesEl = document.getElementById('bili-dark-inject-styles')
 
   // eslint-disable-next-line ts/ban-ts-comment
   // @ts-expect-error
   const transition = document.startViewTransition?.(() => {
-    document.documentElement.classList.toggle('bili-dark', isDark)
-    stylesEl.textContent = isDark ? darkVar : ''
+    document.documentElement.dataset.theme = request.biliColorSchema
   })
 
   transition?.ready.then(() => {
@@ -61,12 +59,6 @@ function toggleTheme(request: RequestType = getInitialRequest()) {
 
 function applyInitialDarkMode() {
   const setting = <ColorSchema>localStorage.getItem('bili-color-schema')
-  const isDark = setting === 'dark'
-  document.documentElement.classList.toggle('bili-dark', isDark)
-  const stylesEl = document.createElement('style')
-  stylesEl.id = 'bili-dark-styles'
-  stylesEl.textContent = isDark ? darkVar : ''
-  document.head.appendChild(stylesEl)
+  document.documentElement.dataset.theme = setting
 }
-
 applyInitialDarkMode()
