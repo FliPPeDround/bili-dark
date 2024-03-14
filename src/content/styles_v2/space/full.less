@@ -1,0 +1,128 @@
+.col-full {
+  @apply bg-dark-4 shadow-none;
+
+  .contribution-sidenav {
+    @apply border-zinc-5;
+
+    .contribution-item.cur {
+      @apply bg-sky-7/90!;
+    }
+  }
+
+  .contribution-item {
+    @apply hover:bg-dark-1;
+
+    .text {
+      @apply desc;
+    }
+  }
+
+  .main-content {
+    @apply border-zinc-5;
+  }
+
+  .page-head {
+    @apply border-zinc5!;
+
+    .video-title {
+      @apply title!;
+    }
+
+    .play-all-btn {
+      @apply btn;
+    }
+
+    .style {
+      .icon {
+        @apply hover:color-sky-7/90;
+      }
+
+      .active {
+        @apply color-sky-7/90;
+      }
+    }
+  }
+
+  #submit-video-type-filter {
+    @apply bg-dark-2! text-gray-3!;
+
+    .count {
+      @apply bg-dark-2!;
+    }
+  }
+
+  .list-item {
+    @apply border-zinc-5;
+  }
+
+  .be-pager-item,
+  .be-pager-next,
+  .be-pager-prev {
+    @apply btn;
+
+    &:hover {
+      a {
+        @apply text-gray-3;
+      }
+    }
+  }
+
+  .be-pager-item-active {
+    @apply blue-btn!;
+  }
+
+  .be-pager-item-jump-next {
+    @apply after:text-gray-4;
+  }
+
+  .space_input {
+    @apply bg-dark-2! text-gray-3! border-zinc-7;
+  }
+
+  .breadcrumb {
+    .item,
+    .cur {
+      @apply title!;
+    }
+
+    .create-series-icon {
+      @apply btn;
+    }
+  }
+
+  .channel-name {
+    @apply title!;
+  }
+
+  .no-channel {
+    @apply bg-dark-4!;
+
+    .create-channel {
+      @apply blue-btn!;
+    }
+  }
+
+  .series-item {
+    .cover {
+      @apply title;
+    }
+
+    .qipapnum {
+      @apply desc bg-dark-2 border-zinc-7 before:bg-none;
+    }
+
+    .title {
+      @apply title;
+    }
+
+    .split-line {
+      @apply bg-zinc5;
+    }
+  }
+
+  .play-btn,
+  .more-btn,
+  .paly-all-btn {
+    @apply btn;
+  }
+}

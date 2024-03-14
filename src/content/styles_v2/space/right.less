@@ -51,10 +51,20 @@
   }
 }
 
+.i-m {
+  .i-m-r2 {
+    @apply border-zinc-7;
+  }
+}
+
 // 公告
 .i-ann {
-  .i-ann-content {
+  #i-ann-content {
     @apply text-gray-4;
+
+    .be-textarea_inner {
+      @apply bg-dark-3 border-zinc-7! text-gray-4!;
+    }
   }
 }
 
@@ -67,6 +77,10 @@
   .i-live-fo-count {
     @apply bg-dark-4 border-zinc-7 text-gray-4;
   }
+
+  .i-live-link {
+    @apply text-gray4;
+  }
 }
 
 // 用户信息
@@ -77,5 +91,20 @@
 
   .icon-tag {
     @apply text-gray4!;
+  }
+
+  .change-info-btn {
+    @apply btn;
+  }
+}
+
+// 广告
+.game {
+  .game-card__info-title {
+    @apply title;
+  }
+
+  .game-card__btn {
+    @apply blue-btn;
   }
 }
