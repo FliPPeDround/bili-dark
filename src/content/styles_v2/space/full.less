@@ -125,4 +125,135 @@
   .paly-all-btn {
     @apply btn;
   }
+
+  // 收藏
+  .nav-container {
+    @apply border-zinc-5!;
+
+    .fav-item {
+      @apply hover:bg-dark-1!;
+    }
+
+    .icon-cursor {
+      @apply bg-dark-5!;
+    }
+
+    .text {
+      @apply title!;
+    }
+  }
+
+  .be-dropdown-menu {
+    @apply border-zinc-7!;
+
+    .be-dropdown-item-delimiter {
+      @apply border-zinc-5!;
+    }
+  }
+
+  .watch-later {
+    @apply border-zinc-5!;
+  }
+
+  .back-to-info {
+    @apply btn;
+  }
+
+  .favList-info {
+    @apply border-zinc-5!;
+
+    .fav-name {
+      @apply title;
+    }
+
+    .fav-play {
+      @apply blue-btn;
+    }
+  }
+
+  .fav-info {
+    .text,
+    .filter-item {
+      @apply desc!;
+    }
+  }
+
+  .be-dropdown-item {
+    @apply hover:bg-dark-1!;
+
+    span {
+      @apply desc!;
+    }
+
+    i {
+      @apply c-gray-5!;
+    }
+  }
+
+  .search {
+    @apply border-zinc-7!;
+
+    .search-types {
+      @apply border-zinc-7!;
+    }
+  }
+
+  .fav-action-top {
+    @apply border-zinc-7!;
+  }
+
+  .fav-action-fixtop {
+    @apply bg-dark-blur! border-none!;
+  }
+
+  .fav-action-bottom {
+    ul {
+      li {
+        @apply desc!;
+      }
+    }
+  }
+
+  .small-item {
+    @apply border-none!;
+
+    .title {
+      @apply title;
+    }
+  }
+
+  .bangumi-route-tab:not(.active),
+  .filter-content,
+  .cur-filter,
+  .pgc-item-desc {
+    @apply text-gray-4!;
+  }
+
+  .pgc-item-title {
+    @apply title;
+  }
+
+  .opt-list {
+    @apply border-zinc-7! bg-dark-4;
+
+    li {
+      @apply hover:bg-dark-1! desc;
+    }
+
+    .disabled {
+      @apply text-gray-5!;
+    }
+  }
+
+  .setting-privacy-name {
+    @apply desc!;
+  }
+
+  .setting-index-container {
+    @apply border-zinc-6!;
+  }
+
+  .setting-index-module {
+    @apply border-zinc-7! desc hover:bg-dark-1!;
+  }
 }
