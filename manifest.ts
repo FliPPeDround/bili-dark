@@ -20,6 +20,7 @@ export const manifest = defineManifest({
         '*://www.bilibili.com/*',
         '*://search.bilibili.com/*',
         '*://space.bilibili.com/*',
+        '*://t.bilibili.com/*',
       ],
       js: ['src/content/index.ts'],
       run_at: 'document_start',

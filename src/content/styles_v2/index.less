@@ -3,7 +3,15 @@
 html[data-theme='bili-dark'] {
   body,
   #app {
-    background-color: var(--bg1) !important;
+    @apply bg-dark-9!;
+
+    .bgc {
+      @apply bg-dark-9!;
+    }
+
+    .bg {
+      @apply bg-none!;
+    }
   }
 
   @import './header/index.less';
