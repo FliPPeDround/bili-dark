@@ -1,8 +1,9 @@
 @import './var/dark.less';
 
 html[data-theme='bili-dark'] {
-  body,
-  #app {
+  body {
+    @apply bg-dark-8!;
+
     .bgc {
       @apply bg-dark-9!;
     }
@@ -19,4 +20,6 @@ html[data-theme='bili-dark'] {
   @import './popover/index.less';
   @import './space/index.less';
   @import './dyn/index.less';
+  @import './history/index.less';
+  @import './footer/index.less';
 }
