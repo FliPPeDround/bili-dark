@@ -1,6 +1,7 @@
 import { defineConfig } from 'unocss/vite'
 import { presetIcons, presetUno, transformerDirectives } from 'unocss'
 import { presetExtra } from 'unocss-preset-extra'
+import { presetScrollbar } from 'unocss-preset-scrollbar'
 
 export default defineConfig({
   rules: [
@@ -17,6 +18,11 @@ export default defineConfig({
     ['title', 'text-gray3 hover:text-gray1'],
     ['desc', 'text-gray4'],
   ],
+  transformers: [
+    transformerDirectives({
+      applyVariable: ['--uno'],
+    }),
+  ],
   presets: [
     presetUno(),
     presetIcons({
@@ -24,10 +30,6 @@ export default defineConfig({
       warn: true,
     }),
     presetExtra(),
-  ],
-  transformers: [
-    transformerDirectives({
-      applyVariable: ['--uno'],
-    }),
+    presetScrollbar(),
   ],
 })

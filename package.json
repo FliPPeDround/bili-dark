@@ -58,6 +58,7 @@
     "typescript": "^5.2.2",
     "unocss": "^0.58.5",
     "unocss-preset-extra": "^0.5.3",
+    "unocss-preset-scrollbar": "^0.3.1",
     "vite": "^5.1.4",
     "web-ext": "^7.7.0"
   },

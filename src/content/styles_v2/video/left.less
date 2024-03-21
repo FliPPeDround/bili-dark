@@ -1,6 +1,17 @@
 @import './../common/reply-box.less';
 
-.bpx-player-container {
+.bpx-player-container() {
   @apply shadow-none;
 }
+
+.bpx-player-container();
 .reply-box();
+
+.left-container {
+  .player-wrap {
+    #bilibili-player-placeholder,
+    .bpx-player-container {
+      .bpx-player-container();
+    }
+  }
+}
