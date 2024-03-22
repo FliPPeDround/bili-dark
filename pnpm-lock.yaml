@@ -23,6 +23,9 @@ devDependencies:
   '@types/chrome':
     specifier: ^0.0.262
     version: 0.0.262
+  '@types/webextension-polyfill':
+    specifier: ^0.10.7
+    version: 0.10.7
   '@unocss/eslint-config':
     specifier: ^0.58.5
     version: 0.58.5(eslint@8.57.0)(typescript@5.2.2)
@@ -32,6 +35,12 @@ devDependencies:
   '@unocss/reset':
     specifier: ^0.58.5
     version: 0.58.5
+  '@webext-core/messaging':
+    specifier: ^1.4.0
+    version: 1.4.0
+  '@webext-core/storage':
+    specifier: ^1.2.0
+    version: 1.2.0
   concurrently:
     specifier: ^8.2.2
     version: 8.2.2
@@ -98,6 +107,9 @@ devDependencies:
   web-ext:
     specifier: ^7.7.0
     version: 7.11.0
+  webextension-polyfill:
+    specifier: ^0.10.0
+    version: 0.10.0
 
 packages:
 
@@ -1382,6 +1394,10 @@ packages:
     resolution: {integrity: sha512-d0XxK3YTObnWVp6rZuev3c49+j4Lo8g4L1ZRm9z5L0xpoZycUPshHgczK5gsUMaZOstjVYYi09p5gYvUtfChYw==}
     dev: true
 
+  /@types/webextension-polyfill@0.10.7:
+    resolution: {integrity: sha512-10ql7A0qzBmFB+F+qAke/nP1PIonS0TXZAOMVOxEUsm+lGSW6uwVcISFNa0I4Oyj0884TZVWGGMIWeXOVSNFHw==}
+    dev: true
+
   /@types/yauzl@2.10.3:
     resolution: {integrity: sha512-oJoftv0LSuaDZE3Le4DbKX+KS9G36NzOeSap90UIK0yMA/NhKJhqlSGtNDORNRaIbQfzjXDrQa0ytJ6mNRGz/Q==}
     dependencies:
@@ -1833,6 +1849,19 @@ packages:
 
   /@webcomponents/custom-elements@1.6.0:
     resolution: {integrity: sha512-CqTpxOlUCPWRNUPZDxT5v2NnHXA4oox612iUGnmTUGQFhZ1Gkj8kirtl/2wcF6MqX7+PqqicZzOCBKKfIn0dww==}
+    dev: true
+
+  /@webext-core/messaging@1.4.0:
+    resolution: {integrity: sha512-gzXQ13HfKR3Yrn9TnrvTC/5seA7uPFvaqxqNFBsFOOdSZa5LyXt58Rhym8BYXarkWUGp+fh8f6AYM3RYuNbS+A==}
+    dependencies:
+      serialize-error: 11.0.3
+      webextension-polyfill: 0.10.0
+    dev: true
+
+  /@webext-core/storage@1.2.0:
+    resolution: {integrity: sha512-XI86HJUhugVdAQZLcj3EH/rZv08ByVn2riX3YI4HCJ86NOH5K3OwGi0ClFa/kq5U5hIVDMG6hwOBwgEgI2G5GQ==}
+    dependencies:
+      webextension-polyfill: 0.10.0
     dev: true
 
   /abbrev@1.1.1:
@@ -4217,7 +4246,7 @@ packages:
     dev: true
 
   /image-size@0.5.5:
-    resolution: {integrity: sha512-6TDAlDPZxUFCv+fuOkIoXT/V/f3Qbq8e37p+YOiYrUv3v9cc3/6x78VdfPgFVaB9dZYeLUfKgHRebpkm/oP2VQ==}
+    resolution: {integrity: sha1-Cd/Uq50g4p6xw+gLiZA3jfnjy5w=}
     engines: {node: '>=0.10.0'}
     hasBin: true
     requiresBuild: true
@@ -5108,7 +5137,7 @@ packages:
     dev: true
 
   /mv@2.1.1:
-    resolution: {integrity: sha512-at/ZndSy3xEGJ8i0ygALh8ru9qy7gWW1cmkaqBN29JmMlIvM//MEO9y1sk/avxuwnPcfhkejkLsuPxH81BrkSg==}
+    resolution: {integrity: sha1-rmzg1vbV4KT32JN5jQPB6pVZtqI=}
     engines: {node: '>=0.8.0'}
     requiresBuild: true
     dependencies:
@@ -5143,7 +5172,7 @@ packages:
     dev: true
 
   /natural-compare@1.4.0:
-    resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
+    resolution: {integrity: sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc=}
     dev: true
 
   /ncp@2.0.0:
@@ -6146,6 +6175,13 @@ packages:
       lru-cache: 6.0.0
     dev: true
 
+  /serialize-error@11.0.3:
+    resolution: {integrity: sha512-2G2y++21dhj2R7iHAdd0FIzjGwuKZld+7Pl/bTU6YIkrC2ZMbVUjm+luj6A6V34Rv9XfKJDKpTWu9W4Gse1D9g==}
+    engines: {node: '>=14.16'}
+    dependencies:
+      type-fest: 2.19.0
+    dev: true
+
   /setimmediate@1.0.5:
     resolution: {integrity: sha1-KQy7Iy4waULX1+qbg3Mqt4VvgoU=}
     dev: true
@@ -7136,6 +7172,10 @@ packages:
   /web-streams-polyfill@3.3.3:
     resolution: {integrity: sha512-d2JWLCivmZYTSIoge9MsgFCZrt571BikcWGYkjC1khllbTeDlGqZ2D8vD8E/lJa8WGWbb7Plm8/XJYV7IJHZZw==}
     engines: {node: '>= 8'}
+    dev: true
+
+  /webextension-polyfill@0.10.0:
+    resolution: {integrity: sha512-c5s35LgVa5tFaHhrZDnr3FpQpjj1BB+RXhLTYUxGqBVN460HkbM8TBtEqdXWbpTKfzwCcjAZVF7zXCYSKtcp9g==}
     dev: true
 
   /when@3.7.7:

@@ -1,34 +1,37 @@
 import 'virtual:uno.css'
 import '@unocss/reset/tailwind.css'
+import { localExtStorage } from '@webext-core/storage'
+import { tabs, windows } from 'webextension-polyfill'
+import { sendMessage } from '@/utils'
 
-async function sendTheme(theme, event) {
-  const window = await chrome.windows.getCurrent()
+async function sendClickPoint(event: MouseEvent) {
+  const window = await windows.getCurrent()
   const x = event.screenX - window.left
   const y = event.clientY
 
-  const [tab] = await chrome.tabs.query({
+  const [tab] = await tabs.query({
     active: true,
     currentWindow: true,
   })
 
-  await chrome.tabs.sendMessage(tab.id, {
-    biliColorSchema: theme,
-    targetPoint: [x, y],
-  })
+  sendMessage('clickPoint', [x, y], tab.id)
 }
 
 const switchEl = <HTMLInputElement>document.getElementById('dark')
-chrome.storage.local.get(['setting'], ({ setting }) => {
-  switchEl.checked = setting !== 'bili-dark'
-})
 
-switchEl.addEventListener('click', async (event) => {
+// localExtStorage.onChange('bili-theme', (newValue) => {
+//   switchEl.checked = newValue.theme !== 'bili-dark'
+// })
+
+// switch 切换主题
+switchEl.addEventListener('click', (event) => {
   const theme = switchEl.checked ? 'light' : 'bili-dark'
-  await sendTheme(theme, event)
+  localExtStorage.setItem('bili-theme', theme)
+  sendClickPoint(event)
 })
 
+// switch 按住切换主题
 let switchLangPressTimer: number | undefined
-
 function switchMouseDown(labelElement: Element) {
   switchLangPressTimer = window.setInterval(() => {
     labelElement.classList.add('circle-screw')

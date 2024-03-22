@@ -36,9 +36,12 @@
     "@iconify-json/ant-design": "^1.1.15",
     "@iconify-json/carbon": "^1.1.31",
     "@types/chrome": "^0.0.262",
+    "@types/webextension-polyfill": "^0.10.7",
     "@unocss/eslint-config": "^0.58.5",
     "@unocss/eslint-plugin": "^0.58.5",
     "@unocss/reset": "^0.58.5",
+    "@webext-core/messaging": "^1.4.0",
+    "@webext-core/storage": "^1.2.0",
     "concurrently": "^8.2.2",
     "cross-env": "^7.0.3",
     "crx": "^5.0.1",
@@ -60,7 +63,8 @@
     "unocss-preset-extra": "^0.5.3",
     "unocss-preset-scrollbar": "^0.3.1",
     "vite": "^5.1.4",
-    "web-ext": "^7.7.0"
+    "web-ext": "^7.7.0",
+    "webextension-polyfill": "^0.10.0"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
