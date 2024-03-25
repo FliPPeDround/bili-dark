@@ -1,5 +1,6 @@
 import 'virtual:uno.css'
 import '@unocss/reset/tailwind.css'
+import './checkbox.css'
 import { localExtStorage } from '@webext-core/storage'
 import { tabs, windows } from 'webextension-polyfill'
 import { sendMessage } from '@/utils'

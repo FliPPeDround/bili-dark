@@ -18,10 +18,15 @@ export default defineConfig({
     ['title', 'text-gray3 hover:text-gray1'],
     ['desc', 'text-gray4'],
   ],
+  theme: {
+    colors: {
+      'bili-dark': '#0a2239',
+      'bili-gray': '#30415d',
+      'bili-pink': '#d44e7d',
+    },
+  },
   transformers: [
-    transformerDirectives({
-      applyVariable: ['--uno'],
-    }),
+    transformerDirectives(),
   ],
   presets: [
     presetUno(),
