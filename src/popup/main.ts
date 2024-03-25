@@ -4,6 +4,7 @@ import './checkbox.css'
 import { localExtStorage } from '@webext-core/storage'
 import { tabs, windows } from 'webextension-polyfill'
 import { sendMessage } from '@/utils'
+import { THEME } from '@/constants'
 
 async function sendClickPoint(event: MouseEvent) {
   const window = await windows.getCurrent()
@@ -20,13 +21,13 @@ async function sendClickPoint(event: MouseEvent) {
 
 const switchEl = <HTMLInputElement>document.getElementById('dark')
 
-// localExtStorage.onChange('bili-theme', (newValue) => {
-//   switchEl.checked = newValue.theme !== 'bili-dark'
-// })
+localExtStorage.onChange('bili-theme', (newValue: string) => {
+  switchEl.checked = newValue !== THEME.DARK
+})
 
 // switch 切换主题
 switchEl.addEventListener('click', (event) => {
-  const theme = switchEl.checked ? 'light' : 'bili-dark'
+  const theme = switchEl.checked ? THEME.LIGHT : THEME.DARK
   localExtStorage.setItem('bili-theme', theme)
   sendClickPoint(event)
 })

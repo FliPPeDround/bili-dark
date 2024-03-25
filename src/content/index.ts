@@ -4,11 +4,16 @@ import './styles_v2/index.less'
 import { localExtStorage } from '@webext-core/storage'
 import type { ProtocolMap } from '@/utils'
 import { getBrowserZoom, onMessage } from '@/utils'
+import { THEME } from '@/constants'
 
 type MessageType<T extends keyof ProtocolMap> = Parameters<ProtocolMap[T]>[0]
 
 function setTheme(theme: string) {
-  document.documentElement.dataset.theme = theme
+  if (theme === THEME.DARK)
+    document.documentElement.dataset.theme = theme
+
+  else
+    document.documentElement.removeAttribute('data-theme')
 }
 
 function getEndRadius(targetPoint: MessageType<'clickPoint'>) {
@@ -26,7 +31,7 @@ async function toggleTheme(targetPoint: MessageType<'clickPoint'>) {
   // @ts-expect-error
   if (document.startViewTransition) {
     const [endRadius, x, y] = getEndRadius(targetPoint)
-    const isDark = biliColorSchema === 'bili-dark'
+    const isDark = biliColorSchema === THEME.DARK
 
     // eslint-disable-next-line ts/ban-ts-comment
     // @ts-expect-error
@@ -45,7 +50,6 @@ async function toggleTheme(targetPoint: MessageType<'clickPoint'>) {
         },
         {
           duration: 600,
-          easing: 'ease-in',
           pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
         },
       )
@@ -59,7 +63,7 @@ async function toggleTheme(targetPoint: MessageType<'clickPoint'>) {
 async function applyInitialDarkMode() {
   let theme = await localExtStorage.getItem('bili-theme')
   if (!theme) {
-    theme = 'bili-dark'
+    theme = THEME.DARK
     localExtStorage.setItem('bili-theme', theme)
   }
   setTheme(theme)
