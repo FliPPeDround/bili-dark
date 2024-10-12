@@ -1,8 +1,8 @@
 /* siwtch-圆样式及动画设置 */
 .switch::before {
   content: '';
-  width: 27px;
-  height: 27px;
+  width: 30px;
+  height: 30px;
   border-radius: 80px;
   background-color: #fff;
   background-image: url('./icons/sun-icon.svg');
@@ -22,7 +22,7 @@
 
 /* checked时圆的位置变化 */
 [type='checkbox']:checked + .switch::before {
-  margin-left: 22px;
+  margin-left: 80px;
   background-color: #313131;
   background-image: url('./icons/moon-icon.svg');
   box-shadow: -2px 4px 10px -2px #000;
@@ -36,5 +36,5 @@
 /* unchecked时长按效果, 达到 */
 [type='checkbox']:checked + .switch.circle-screw::before {
   width: 36.3px;
-  margin-left: 12px;
+  margin-left: 70px;
 }

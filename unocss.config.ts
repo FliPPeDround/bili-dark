@@ -7,6 +7,10 @@ export default defineConfig({
   rules: [
     ['blur', { 'backdrop-filter': 'blur(32px)' }],
     ['bg-dark-8', { 'background-color': '#17181a' }],
+    ['bg-reseau', {
+      'background-image': 'linear-gradient(to right, #f6f6f6 1px, transparent 1px), linear-gradient(to bottom, #f6f6f6 1px, transparent 1px);',
+      'background-size': '14px 14px',
+    }],
   ],
   shortcuts: [
     ['btn', 'bg-dark-4! border-zinc-7! text-gray-4! hover:bg-zinc-7! hover:text-gray-3!'],

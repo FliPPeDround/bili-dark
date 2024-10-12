@@ -1,6 +1,7 @@
 // 头部
-.bili-header__bar,
-.bili-header__bar.slide-down,
+[class*='bili-header__bar '],
+[class*=' bili-header__bar '],
+[class*=' bili-header__bar'],
 .header-channel {
   @apply bg-dark-8/75 blur;
 
@@ -24,6 +25,10 @@
       @apply btn;
     }
   }
+}
+
+.bili-header__banner {
+  filter: brightness(0.8);
 }
 
 .slide-down {
