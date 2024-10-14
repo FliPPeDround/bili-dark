@@ -31,5 +31,5 @@ export const manifest = defineManifest({
     48: 'public/icon-48.png',
     128: 'public/icon-48.png',
   },
-  permissions: ['scripting', 'activeTab', 'storage'],
+  permissions: ['scripting', 'activeTab', 'storage', 'tabs'],
 })

@@ -1,8 +1,8 @@
 import 'virtual:uno.css'
 import '@unocss/reset/tailwind.css'
-import './checkbox.css'
+import './checkbox.less'
 import { localExtStorage } from '@webext-core/storage'
-import { tabs, windows } from 'webextension-polyfill'
+import { runtime, tabs, windows } from 'webextension-polyfill'
 import { sendMessage } from '@/utils'
 import { THEME } from '@/constants'
 
@@ -56,3 +56,32 @@ switchEl.addEventListener('mouseup', () => {
   }
   switchEl.nextElementSibling?.classList.remove('circle-screw')
 })
+
+function computedIssueLink(pageUrl: string, title: string) {
+  const url = new URL('https://github.com/FliPPeDround/bili-dark/issues/new')
+  const params = new URLSearchParams()
+  params.append('title', `【页面反馈】：${title}页面`)
+  const bodyContent = `
+地址：${pageUrl}
+版本： \`v${runtime.getManifest().version}\`
+
+<!-- 请截图并附上截图描述，以便我们更好地了解问题 -->
+`
+  params.append('body', bodyContent)
+  url.search = params.toString()
+  return url.href
+}
+
+const issueLinkEl = <HTMLElement>document.getElementById('issues-link')
+issueLinkEl.addEventListener('click', async () => {
+  const tabInfo = await tabs.query({
+    active: true,
+    currentWindow: true,
+  })
+  const { url, title } = tabInfo[0]
+  const issueLink = computedIssueLink(url, title)
+  await tabs.create({ url: issueLink })
+})
+
+const versionEl = <HTMLDivElement>document.getElementById('version')
+versionEl.textContent = `version v${runtime.getManifest().version}`

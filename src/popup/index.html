@@ -3,14 +3,34 @@
   <head>
     <meta charset="UTF-8" />
   </head>
-  <body class="bg-white dark:bg-dark-8 font-sans">
+  <body class="font-sans c-#555">
     <div
       id="App"
-      class="size-xs animated animated-fade-in-down animated-duration-500ms text-gray-700 dark:text-white"
+      class="bg-reseau w260px h300px flex items-center justify-center animated animated-fade-in-down animated-duration-500ms dark:text-white"
     >
-      <div
-        class="bg-reseau flex items-center justify-center pb10 pt20 border-y border-b-gray-200 dark:border-b-gray-300"
-      >
+      <header class="fixed top-3 right-3 flex-inline text-base space-x-1 op50">
+        <div class="group-icon group" id="issues-link">
+          <div class="i-carbon:debug popup-icon"></div>
+          <div class="group-icon-text">反馈BUG</div>
+        </div>
+
+        <div class="group-icon group">
+          <div class="i-simple-icons:githubsponsors popup-icon"></div>
+          <div class="group-icon-text">赞助项目</div>
+        </div>
+
+        <div class="group-icon group">
+          <div class="i-carbon:logo-github popup-icon"></div>
+          <div class="group-icon-text">项目源码</div>
+        </div>
+
+        <div class="group-icon group">
+          <div class="i-carbon:thumbs-up popup-icon"></div>
+          <div class="group-icon-text">点赞支持</div>
+        </div>
+      </header>
+
+      <div>
         <div class="relative">
           <input
             type="checkbox"
@@ -23,14 +43,13 @@
           />
         </div>
       </div>
-      <div class="flex justify-between items-center">
-        <div
-          class="boreder-t b-brder-r border-t-gray-200 b-1 b-solid inline-block p2"
-        >
-          关于
-        </div>
-        <div class="p2 c-gray-500">vershin v0.1.0</div>
-      </div>
+
+      <footer
+        class="text-xs op50 fixed bottom-1 right-3 cursor-default italic flex flex-col"
+      >
+        <div id="version" class="self-end"></div>
+        MIT © FliPPeDround
+      </footer>
     </div>
 
     <script type="module" src="./main.ts"></script>
