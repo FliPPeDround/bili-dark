@@ -2,11 +2,21 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      !(function () {
+        const e =
+            window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches,
+          t = localStorage.getItem('vueuse-color-scheme') || 'auto'
+        ;('dark' === t || (e && 'light' !== t)) &&
+          document.documentElement.classList.toggle('dark', !0)
+      })()
+    </script>
   </head>
-  <body class="font-sans c-#555">
+  <body class="font-sans c-#555 dark:c-#BBB">
     <div
       id="App"
-      class="bg-reseau w260px h300px flex items-center justify-center animated animated-fade-in-down animated-duration-500ms dark:text-white"
+      class="bg-reseau-white dark:bg-reseau-black w260px h300px flex items-center justify-center animated animated-fade-in-down animated-duration-500ms dark:text-white"
     >
       <header class="fixed top-3 right-3 flex-inline text-base space-x-1 op50">
         <div class="group-icon group" id="issues-link">
@@ -14,20 +24,32 @@
           <div class="group-icon-text">反馈BUG</div>
         </div>
 
-        <div class="group-icon group">
+        <a
+          class="group-icon group"
+          href="https://afdian.com/a/flippedround"
+          target="_blank"
+        >
           <div class="i-simple-icons:githubsponsors popup-icon"></div>
           <div class="group-icon-text">赞助项目</div>
-        </div>
+        </a>
 
-        <div class="group-icon group">
+        <a
+          class="group-icon group"
+          href="https://github.com/FliPPeDround/bili-dark"
+          target="_blank"
+        >
           <div class="i-carbon:logo-github popup-icon"></div>
           <div class="group-icon-text">项目源码</div>
-        </div>
+        </a>
 
-        <div class="group-icon group">
+        <a
+          class="group-icon group"
+          href="https://github.com/FliPPeDround/bili-dark"
+          target="_blank"
+        >
           <div class="i-carbon:thumbs-up popup-icon"></div>
           <div class="group-icon-text">点赞支持</div>
-        </div>
+        </a>
       </header>
 
       <div>

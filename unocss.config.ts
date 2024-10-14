@@ -8,9 +8,17 @@ export default defineConfig({
     ['blur', { 'backdrop-filter': 'blur(32px)' }],
     ['bg-dark-8', { 'background-color': '#17181a' }],
     [
-      'bg-reseau',
+      'bg-reseau-white',
       {
         'background-image': 'linear-gradient(to right, #f6f6f6 1px, transparent 1px), linear-gradient(to bottom, #f6f6f6 1px, transparent 1px);',
+        'background-size': '14px 14px',
+      },
+    ],
+    [
+      'bg-reseau-black',
+      {
+        'background-color': '#000',
+        'background-image': 'linear-gradient(to right, #17181a 1px, transparent 1px), linear-gradient(to bottom, #17181a 1px, transparent 1px);',
         'background-size': '14px 14px',
       },
     ],
@@ -43,9 +51,9 @@ export default defineConfig({
     ['title', 'text-gray3 hover:text-gray1'],
     ['desc', 'text-gray4'],
     ['animation-line', 'pb1 bg-gradient-to-r from-gray-400/50 to-gray-500/80 bg-no-repeat bg-right-bottom bg-size-none transition-background-size hover:bg-left-bottom hover:bg-size-line'],
-    ['popup-icon', 'transition-colors duration-150 group-hover:text-pink-5 cursor-pointer'],
+    ['popup-icon', 'transition-colors duration-150 group-hover:text-pink-5 dark:group-hover:text-#84C1DA cursor-pointer'],
     ['group-icon', 'flex items-center cursor-pointer'],
-    ['group-icon-text', 'ml1 group-hover:w-66px transition-width duration-0.6s w-0 overflow-hidden whitespace-nowrap'],
+    ['group-icon-text', 'ml1 group-hover:w-66px transition-width duration-0.6s w-0 overflow-hidden whitespace-nowrap delay-0.2s'],
   ],
   theme: {
     colors: {

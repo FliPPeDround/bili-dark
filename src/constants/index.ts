@@ -1,4 +1,4 @@
 export enum THEME {
-  DARK = 'bili-dark',
+  DARK = 'dark',
   LIGHT = 'light',
 }

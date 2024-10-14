@@ -1,12 +1,22 @@
 import 'virtual:uno.css'
 import '@unocss/reset/tailwind.css'
 import './checkbox.less'
+import './../content/styles_v2/toggle.less'
 import { localExtStorage } from '@webext-core/storage'
 import { runtime, tabs, windows } from 'webextension-polyfill'
-import { sendMessage } from '@/utils'
+import { sendMessage, toggleTheme } from '@/utils'
 import { THEME } from '@/constants'
 
-async function sendClickPoint(event: MouseEvent) {
+const switchEl = <HTMLInputElement>document.getElementById('dark')
+
+localExtStorage.onChange('bili-theme', (newValue: string) => {
+  switchEl.checked = newValue !== THEME.DARK
+})
+
+// switch 切换主题
+switchEl.addEventListener('click', async (event) => {
+  const theme = switchEl.checked ? THEME.LIGHT : THEME.DARK
+  localExtStorage.setItem('bili-theme', theme)
   const window = await windows.getCurrent()
   const x = event.screenX - window.left
   const y = event.clientY
@@ -16,20 +26,8 @@ async function sendClickPoint(event: MouseEvent) {
     currentWindow: true,
   })
 
+  toggleTheme([event.screenX, event.screenY])
   sendMessage('clickPoint', [x, y], tab.id)
-}
-
-const switchEl = <HTMLInputElement>document.getElementById('dark')
-
-localExtStorage.onChange('bili-theme', (newValue: string) => {
-  switchEl.checked = newValue !== THEME.DARK
-})
-
-// switch 切换主题
-switchEl.addEventListener('click', (event) => {
-  const theme = switchEl.checked ? THEME.LIGHT : THEME.DARK
-  localExtStorage.setItem('bili-theme', theme)
-  sendClickPoint(event)
 })
 
 // switch 按住切换主题
