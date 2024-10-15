@@ -2,16 +2,6 @@
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
-    <script>
-      !(function () {
-        const e =
-            window.matchMedia &&
-            window.matchMedia('(prefers-color-scheme: dark)').matches,
-          t = localStorage.getItem('vueuse-color-scheme') || 'auto'
-        ;('dark' === t || (e && 'light' !== t)) &&
-          document.documentElement.classList.toggle('dark', !0)
-      })()
-    </script>
   </head>
   <body class="font-sans c-#555 dark:c-#BBB">
     <div

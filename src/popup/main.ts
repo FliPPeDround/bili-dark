@@ -4,10 +4,12 @@ import './checkbox.less'
 import './../content/styles_v2/toggle.less'
 import { localExtStorage } from '@webext-core/storage'
 import { runtime, tabs, windows } from 'webextension-polyfill'
-import { sendMessage, toggleTheme } from '@/utils'
+import { applyInitialDarkMode, getEndRadiusInPopup, sendMessage, toggleTheme } from '@/utils'
 import { THEME } from '@/constants'
 
+const ua = navigator.userAgent.toLowerCase()
 const switchEl = <HTMLInputElement>document.getElementById('dark')
+applyInitialDarkMode()
 
 localExtStorage.onChange('bili-theme', (newValue: string) => {
   switchEl.checked = newValue !== THEME.DARK
@@ -25,8 +27,7 @@ switchEl.addEventListener('click', async (event) => {
     active: true,
     currentWindow: true,
   })
-
-  toggleTheme([event.screenX, event.screenY])
+  toggleTheme(getEndRadiusInPopup([event.clientX, event.clientY]), true)
   sendMessage('clickPoint', [x, y], tab.id)
 })
 
@@ -62,6 +63,7 @@ function computedIssueLink(pageUrl: string, title: string) {
   const bodyContent = `
 地址：${pageUrl}
 版本： \`v${runtime.getManifest().version}\`
+浏览器信息：\`${ua}\`
 
 <!-- 请截图并附上截图描述，以便我们更好地了解问题 -->
 `
@@ -72,11 +74,11 @@ function computedIssueLink(pageUrl: string, title: string) {
 
 const issueLinkEl = <HTMLElement>document.getElementById('issues-link')
 issueLinkEl.addEventListener('click', async () => {
-  const tabInfo = await tabs.query({
+  const [tab] = await tabs.query({
     active: true,
     currentWindow: true,
   })
-  const { url, title } = tabInfo[0]
+  const { url, title } = tab
   const issueLink = computedIssueLink(url, title)
   await tabs.create({ url: issueLink })
 })
