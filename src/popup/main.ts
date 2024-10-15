@@ -27,7 +27,7 @@ switchEl.addEventListener('click', async (event) => {
     active: true,
     currentWindow: true,
   })
-  toggleTheme(getEndRadiusInPopup([event.clientX, event.clientY]), true)
+  toggleTheme(getEndRadiusInPopup([event.clientX, event.clientY]))
   sendMessage('clickPoint', [x, y], tab.id)
 })
 

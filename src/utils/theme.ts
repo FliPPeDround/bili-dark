@@ -39,7 +39,7 @@ export function getEndRadiusInPopup(targetPoint: MessageType<'clickPoint'>): Sta
   return [endRadius, x, y]
 }
 
-export async function toggleTheme(data: StartPoint, isPopup = false) {
+export async function toggleTheme(data: StartPoint) {
   const [endRadius, x, y] = data
   const biliColorSchema = await localExtStorage.getItem('bili-theme')
   const isDark = biliColorSchema === THEME.DARK
@@ -57,8 +57,7 @@ export async function toggleTheme(data: StartPoint, isPopup = false) {
         clipPath: isDark ? clipPath.reverse() : clipPath,
       },
       {
-        duration: isDark && isPopup ? 80 : 600,
-        delay: isDark && isPopup ? 500 : 0,
+        duration: 600,
         easing: 'linear',
         pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
       },
