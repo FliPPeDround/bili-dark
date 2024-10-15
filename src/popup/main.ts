@@ -9,7 +9,7 @@ import { THEME } from '@/constants'
 
 const ua = navigator.userAgent.toLowerCase()
 const switchEl = <HTMLInputElement>document.getElementById('dark')
-applyInitialDarkMode()
+applyInitialDarkMode(switchEl)
 
 localExtStorage.onChange('bili-theme', (newValue: string) => {
   switchEl.checked = newValue !== THEME.DARK
