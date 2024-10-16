@@ -1,5 +1,5 @@
-import { defineConfig } from 'unocss/vite'
 import { presetIcons, presetUno, transformerDirectives } from 'unocss'
+import { defineConfig } from 'unocss/vite'
 import { presetExtra } from 'unocss-preset-extra'
 import { presetScrollbar } from 'unocss-preset-scrollbar'
 
@@ -53,7 +53,7 @@ export default defineConfig({
     ['animation-line', 'pb1 bg-gradient-to-r from-gray-400/50 to-gray-500/80 bg-no-repeat bg-right-bottom bg-size-none transition-background-size hover:bg-left-bottom hover:bg-size-line'],
     ['popup-icon', 'transition-colors duration-150 group-hover:text-pink-5 dark:group-hover:text-#84C1DA cursor-pointer'],
     ['group-icon', 'flex items-center cursor-pointer'],
-    ['group-icon-text', 'ml1 group-hover:w-66px transition-width duration-0.6s w-0 overflow-hidden whitespace-nowrap delay-0.2s'],
+    ['group-icon-text', 'ml1 group-hover:w-66px transition-width duration-0.6s w-0 overflow-hidden whitespace-nowrap delay-0.1s'],
   ],
   theme: {
     colors: {
