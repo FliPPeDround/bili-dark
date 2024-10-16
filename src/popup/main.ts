@@ -1,11 +1,12 @@
+import { THEME } from '@/constants'
+import { applyInitialDarkMode, sendMessage } from '@/utils'
+import { ToggleAnimatedTheme } from '@/utils/ToggleAnimatedTheme'
+import { localExtStorage } from '@webext-core/storage'
+import { runtime, tabs, windows } from 'webextension-polyfill'
 import 'virtual:uno.css'
 import '@unocss/reset/tailwind.css'
 import './checkbox.less'
 import './../content/styles_v2/toggle.less'
-import { localExtStorage } from '@webext-core/storage'
-import { runtime, tabs, windows } from 'webextension-polyfill'
-import { applyInitialDarkMode, getEndRadiusInPopup, sendMessage, toggleTheme } from '@/utils'
-import { THEME } from '@/constants'
 
 const ua = navigator.userAgent.toLowerCase()
 const switchEl = <HTMLInputElement>document.getElementById('dark')
@@ -17,18 +18,20 @@ localExtStorage.onChange('bili-theme', (newValue: string) => {
 
 // switch 切换主题
 switchEl.addEventListener('click', async (event) => {
+  const { screenX, clientX, clientY } = event
   const theme = switchEl.checked ? THEME.LIGHT : THEME.DARK
   localExtStorage.setItem('bili-theme', theme)
   const window = await windows.getCurrent()
-  const x = event.screenX - window.left
-  const y = event.clientY
+  const x = screenX - window.left
+  const y = clientY
 
   const [tab] = await tabs.query({
     active: true,
     currentWindow: true,
   })
-  toggleTheme(getEndRadiusInPopup([event.clientX, event.clientY]))
-  sendMessage('clickPoint', [x, y], tab.id)
+  const toggleAnimatedTheme = new ToggleAnimatedTheme(clientX, clientY, false)
+  const radiusTab = await sendMessage('clickPoint', [x, y], tab.id)
+  await toggleAnimatedTheme.toggle(radiusTab)
 })
 
 // switch 按住切换主题
