@@ -5,7 +5,11 @@ export const manifest = defineManifest({
   manifest_version: 3,
   name: pkg.name,
   version: pkg.version,
+  default_locale: 'zh_CN',
   description: pkg.description,
+  author: {
+    email: 'flippedround@qq.com',
+  },
   action: {
     default_popup: 'src/popup/index.html',
     default_icon: {

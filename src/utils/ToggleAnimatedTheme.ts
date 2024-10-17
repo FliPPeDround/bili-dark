@@ -76,7 +76,7 @@ export class ToggleAnimatedTheme {
   public async toggle(radiusTab?: number): Promise<void> {
     try {
       const biliColorSchema = await localExtStorage.getItem('bili-theme') as THEME
-      if (document.startViewTransition)
+      if (document?.startViewTransition)
         await this.animate(biliColorSchema, radiusTab)
       else
         this.setTheme(biliColorSchema)
