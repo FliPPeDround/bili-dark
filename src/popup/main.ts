@@ -12,7 +12,7 @@ const ua = navigator.userAgent.toLowerCase()
 const switchEl = <HTMLInputElement>document.getElementById('dark')
 applyInitialDarkMode(switchEl)
 
-localExtStorage.onChange('bili-theme', (newValue: string) => {
+localExtStorage.onChange('bili-theme', (newValue: THEME) => {
   switchEl.checked = newValue !== THEME.DARK
 })
 
