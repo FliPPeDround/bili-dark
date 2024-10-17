@@ -35,7 +35,7 @@ export class ToggleAnimatedTheme {
   }
 
   /** 设置主题 */
-  setTheme(theme: string) {
+  setTheme(theme: THEME) {
     document.documentElement.classList.toggle('dark', theme !== THEME.DARK)
   }
 
